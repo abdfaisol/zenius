@@ -1,3 +1,3 @@
 overview tugas1.  
-post:. 
+post:  
 https://abdfaisol.github.io/zenius/tugas1/post/
