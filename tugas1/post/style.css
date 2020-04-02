@@ -1,0 +1,38 @@
+body{padding: 0; margin:0;}
+.full-w{width: 100%}
+.header{display: flex;justify-content: center; overflow: hidden; height: 500px}
+.promotion{display: flex;height: 450px;}
+.wrap-kata-mutiara{width: 60%;background-color: gray;display: flex;justify-content: center;align-items: center;}
+.kata-mutiara{width: 90%; height: 350px;background-color: white;position: relative;}
+.kata-mutiara img{position: absolute;top: 0; left: 0;z-index: 0}
+.kata-mutiara h1{z-index: 2; margin-left: 15px;position: relative;	}
+.video{width: 40%; background-color: tomato;overflow: hidden;position: relative;}
+.testimoni{background-color: white;display: flex;align-items: center;flex-direction: column;}
+.testimoni h1{text-align: center}
+.testimoni-homepage{
+	width: 400px;
+	height: 250px;
+	border: 1px solid black;
+	border-radius: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+}
+.testimoni-homepage img{
+	width: 100%;
+	max-width: 150px;
+	border-radius: 150px;
+}
+.testimoni-homepage .isi-testimoni{
+	flex-grow: 1
+}
+.matkul{
+	background-color: tomato
+}
+.menu-matkul{
+	width: 80%;
+	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
