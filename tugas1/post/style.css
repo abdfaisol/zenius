@@ -1,38 +1,194 @@
 body{padding: 0; margin:0;}
 .full-w{width: 100%}
-.header{display: flex;justify-content: center; overflow: hidden; height: 500px}
-.promotion{display: flex;height: 450px;}
-.wrap-kata-mutiara{width: 60%;background-color: gray;display: flex;justify-content: center;align-items: center;}
-.kata-mutiara{width: 90%; height: 350px;background-color: white;position: relative;}
-.kata-mutiara img{position: absolute;top: 0; left: 0;z-index: 0}
-.kata-mutiara h1{z-index: 2; margin-left: 15px;position: relative;	}
-.video{width: 40%; background-color: tomato;overflow: hidden;position: relative;}
-.testimoni{background-color: white;display: flex;align-items: center;flex-direction: column;}
-.testimoni h1{text-align: center}
-.testimoni-homepage{
-	width: 400px;
-	height: 250px;
-	border: 1px solid black;
-	border-radius: 15px;
+.flex{display: flex;}
+.relative{position: relative;}
+.flexCenterAll{justify-content: center;align-items: center;}
+.flexAlignCenter{align-items: center;}
+.centerMargin{margin-left: auto;margin-right: auto;}
+.header{
+	justify-content: center; 
+	overflow: hidden;
+	background-image: url(img/header_web.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	padding: 50px 0;
+}
+.desc-header{
+	max-width: 650px;
+	text-align: center;
+	height: 100%;
 	margin-left: auto;
-	margin-right: auto;
+	font-family: sans-serif !important; 
+	color: black;
+	flex-direction: column;
+}
+.content{padding: 85px 0;}
+.desc-header h1{font-weight: bold; font-size: 35px}
+.desc-header span{font-size: 16px}
+.desc-header button{padding: 15px 30px; background-color: #661daa; color: white; font-family: serif; font-weight: bold;font-size: 14px; border: none; border-radius: 5px}
+.app{margin-top: auto;font-size: 16px; }
+#ico_app img{width: 100px; height: auto;}
+
+
+
+.promotion{background: #fff9e9; padding: 50px 0}
+.wrap-kata-mutiara{width: 60%;}
+.kata-mutiara{width: 70%;padding-left: 15px; font-family: sans-serif;}
+.kata-mutiara img{position: absolute;top: 0px; left: 0;z-index: 0}
+.kata-mutiara h1{
+	z-index: 2;
+	font-size: 35px;
+	position: relative;
+	font-family: sans-serif;
+	margin-top: 10px;
+	font-weight: bold;
+	color: black
+}
+.kata-mutiara p{font-weight: bold; color: #7b7b7b}
+.kata-mutiara p:before{
+	content: '';
+	position: relative;
+	width: 70px;
+	height: 2px;
+	display: inline-block;
+	background: #fecf3b;
+	margin-bottom: 5px;
+	margin-right: 12px
+}
+.button{border: none; padding: 15px 30px;font-weight: bold;font-size: 14px;border-radius: 5px}
+
+.video{width: 50%; overflow: hidden;position: relative; height: 100%;}
+.video img{height: 100%;}
+.ctn-video{
+	position: absolute;
+	width: 100%;
+	height: 80%;
+	top: 46%;left: 15%;
+	transform: translateY(-50%);
+}
+.wrap-video{
+	background-image: url(img/0.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#click-video{
+	background-image: url(img/play-circle.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+
+}
+
+
+.testimoni{background-color: #f8f8f8;flex-direction: column;padding: 75px 0}
+.testimoni h1{text-align: center; color: black}
+.slideOrign{
+	max-width: 850px;
+	border: .1rem solid #e4e4e4;
+	border-radius: 1.1rem;
+	background-color: white
+}
+.testimoni-homepage{
+	margin: 15px 50px;
+	padding: 25px;
 	display: flex;
 }
 .testimoni-homepage img{
 	width: 100%;
-	max-width: 150px;
+	max-width: 75px;
 	border-radius: 150px;
+	margin: 15px 0;
 }
 .testimoni-homepage .isi-testimoni{
-	flex-grow: 1
+	padding: 15px;
+	flex-grow: 1;
+	width: 78%;
+	position: relative;
 }
+.profilAlumni{
+	padding-left: 70px;
+	position: relative;
+	margin-top: 25px;
+	font-family: sans-serif;
+}
+.profilAlumni p{margin: 0; font-weight: bold; color: #7b7b7b;}
+.profilAlumni p:before{
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 2px;
+	display: inline-block;
+	background: #fecf3b;
+	left: 0;
+	top: .5rem;
+}
+.alumni{color: #7b7b7b;}
+.isi-testimoni h4{margin: 0 !important; font-size: 18px;font-family: sans-serif;}
 .matkul{
-	background-color: tomato
+	background-color: white;
+	flex-direction: column;
+	padding: 50px 0
+}
+.matkul h1{
+	text-align: center; color: black; border-bottom: 1px solid #f5d472; width: 50%; font-size: 28px;
+	margin: 25px 0
 }
 .menu-matkul{
 	width: 80%;
-	height: 450px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
 }
+.testi-2{
+	width: 100%;
+	max-width: 900px;
+	padding: 25px 0;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+.testi-2 h1{font-size: 28px}
+#testi-2{
+	background-color: #f8f8f8;
+	border: none;
+}
+#testi-2 .profil{width: 250px}
+.psn{font-style: italic; font-weight: lighter;font-size: 14px}
+.nama{text-align: right;font-weight: bold;}
+.nama:before{
+	content: "-";
+}
+#profil img{
+max-width: 60%
+}
+.mn-kul p{
+	display: inline;
+	padding: 25px;
+}
+.indicatorOrign li{
+	background-color: black !important
+}
+.control{color: black; width: 10% !important}
+.control i{color: black;}
+
+.matkulMenu{background-color: #b4b4b4;position: relative; overflow: hidden;padding: 0; margin: 5px 0 0 0; font-size: 14px}
+.matkulMenu li{list-style: none; float: left;}
+.matkulMenu li a{padding: 25px; display: block; color: black; text-decoration: none;}
+#scdMatkul{background-color: #f0f0f0}
+#scdMatkul .active2{background-color: #f5d472}
+#scdMatkul .active2 a{text-decoration: none !important;}
+.active2{background-color: #f0f0f0}
+.active2 a{text-decoration: underline !important;}
+.setMatkul{width: 100%; border-top: 2px solid #f5d472; display: grid;
+grid-template-columns: auto auto auto auto auto
+}
+.title-matkul p{margin: auto; padding: 15px; color: #666;font-size: 22px;border-bottom: 2px solid #f5d472; text-align: center;}
+.title-matkul ul{padding: 0; margin: 0;}
+.title-matkul ul li{list-style: none;}
+.title-matkul ul li ul li{padding: 5px 0}
+
+.titleMatkul li{font-weight: bolder;}
+
