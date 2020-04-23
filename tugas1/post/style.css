@@ -4,7 +4,15 @@ body{padding: 0; margin:0;}
 .relative{position: relative;}
 .flexCenterAll{justify-content: center;align-items: center;}
 .flexAlignCenter{align-items: center;}
+.justifyBetween{justify-content: space-between;}
 .centerMargin{margin-left: auto;margin-right: auto;}
+.wrapperSizeDefault{width: 90%; max-width: 1200px}
+.smallHeight{height: 350px;}
+.heightPre{height: 500px;}
+.spaceTopDown{margin: 25px 0}
+.ContainerPost{
+
+}
 .header{
 	justify-content: center; 
 	overflow: hidden;
@@ -64,7 +72,7 @@ body{padding: 0; margin:0;}
 	position: absolute;
 	width: 100%;
 	height: 80%;
-	top: 46%;left: 15%;
+	top: 46%;left: 6rem;
 	transform: translateY(-50%);
 }
 .wrap-video{
@@ -80,7 +88,6 @@ body{padding: 0; margin:0;}
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,0.3);
-
 }
 
 
@@ -189,6 +196,78 @@ grid-template-columns: auto auto auto auto auto
 .title-matkul ul{padding: 0; margin: 0;}
 .title-matkul ul li{list-style: none;}
 .title-matkul ul li ul li{padding: 5px 0}
-
 .titleMatkul li{font-weight: bolder;}
 
+
+.iklan img{width: 100%; height: auto;}
+.textcenter{text-align: center;}
+
+.boxMembership{
+	width: 250px;
+	background-color: white;
+	margin: 0 15px;
+	box-shadow: 0 0 8px 2px rgba(0,0,0,.2);
+	border: 1px solid #e4e4e4;
+	border-radius: 1rem;
+	flex-direction: column;
+	height: 300px !important;
+}
+.titleMembership{background: linear-gradient(180deg, #d8d8d8 0, #f3f3f3 100%); padding: 15px 0}
+.titleMembership span{font-size: 25px; padding: 0; margin: 0; font-weight: bolder;}
+.price{
+	flex-grow: 1;
+	position: relative;
+}
+.price h1{
+	text-decoration: line-through black;
+	color: #f6671d;
+	font-size: 2rem
+}
+.buttonActive:hover{
+	background-color: #ccc
+}
+.membership .button{
+	background-color: #ffcf3a;
+}
+.membership .button:hover{
+	background-color: #ccc
+}
+.h1Origin{
+	font-weight: 700
+}
+.list{background-color: white; margin: 25px 0;box-shadow: 6px 9px 19px 1px #bba2a2}
+.list p{color: #fff;
+    font-size: 18px; padding: 0; margin: 0}
+.list .contentList{
+	flex-grow: 1;
+	margin: 25px 15px;
+}
+.contentList p{color: black}
+.directionFlexColoum{flex-direction: column;}
+.bg3636{background: #363636 !important}
+.mb4{
+	width: 23%;
+}
+.tria{
+	height: 150px;
+}
+.triangle{
+	z-index: 1;
+    margin: auto;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 43px solid transparent;
+    border-right: 43px solid transparent;
+    position: absolute;
+    bottom: -48px;
+    left: 0;
+    right: 0;
+    border-top: 48px solid #eaeaea;
+}
+.paddingSpaceLarge{
+	padding: 75px 0
+}
+.paddingSpaceMedium{
+	padding: 50px 0
+}
