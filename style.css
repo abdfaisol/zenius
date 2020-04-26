@@ -261,7 +261,7 @@ grid-template-columns: auto auto auto auto auto
 .con2-fa ul li a:hover{
 	text-decoration-line: underline;
 }
-.con2-fa h3{
+.con2-fa h4{
 	font-family: 'montserrat',sans-serif !important;
 	letter-spacing: 0.7px;
 	font-size: 14px;
