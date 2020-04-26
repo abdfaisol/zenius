@@ -218,7 +218,7 @@ grid-template-columns: auto auto auto auto auto
 .kiri-fa{
 	width: 33.33333333333333%;
 	position: relative;
-    min-height: 1px;
+    	min-height: 1px;
 	display: inline-block;
 	float: left;
 }
@@ -226,18 +226,18 @@ grid-template-columns: auto auto auto auto auto
 .tengah-fa{
 	width: 33.333333333%;
 	position: relative;
-    min-height: 1px;
-    display: inline-block;
-    float: center;
-    margin-left: -15px;
+    	min-height: 1px;
+    	display: inline-block;
+    	float: center;
+    	margin-left: -15px;
 }
 
 .kanan-fa{
 	width: 33.333333333%;
 	position: relative;
-    min-height: 1px;
-    display: inline-block;
-    float: right;
+    	min-height: 1px;
+    	display: inline-block;
+    	float: right;
 }
 .logo-footer{
 	margin-left: 35px;
@@ -257,8 +257,9 @@ grid-template-columns: auto auto auto auto auto
 	text-decoration: none;
 	margin-left: -5px;
 	line-height: 24px;
-	
-
+}
+.con2-fa ul li a:hover{
+	text-decoration-line: underline;
 }
 .con2-fa h5{
 	font-family: 'montserrat',sans-serif !important;
@@ -289,10 +290,10 @@ grid-template-columns: auto auto auto auto auto
 .isi-c{
 	width: 100%;
 	position: relative;
-    min-height: 1px;
-    letter-spacing: 0.7px;
-    padding-right: -15px;
-    padding-left: -15px;
+   	 min-height: 1px;
+    	letter-spacing: 0.7px;
+    	padding-right: -15px;
+    	padding-left: -15px;
 }
 .footer-bawah p{
 	font-size: 13px;
