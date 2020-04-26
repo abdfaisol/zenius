@@ -264,11 +264,11 @@ grid-template-columns: auto auto auto auto auto
 .con2-fa h5{
 	font-family: 'montserrat',sans-serif !important;
 	letter-spacing: 0.7px;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.1;
 	color: #000;
 	margin-top: 10px;
-	margin-left: -5px;
+	margin-left: -7px;
 	margin-bottom: 3px;
 }
 
