@@ -64,9 +64,10 @@ body{padding: 0; margin:0;}
 	color: #333;
 	text-decoration: none;
 	margin-left: -5px;
-	line-height: 24px;
-	
-
+	line-height: 24px;	
+}
+.con2-fa ul li a:hover{
+	text-decoration-line: underline;
 }
 .con2-fa h5{
 	font-family: 'montserrat',sans-serif !important;
