@@ -256,7 +256,7 @@ grid-template-columns: auto auto auto auto auto
 	color: #333;
 	text-decoration: none;
 	margin-left: -5px;
-	line-height: 24px;
+	line-height: 24px;	
 }
 .con2-fa ul li a:hover{
 	text-decoration-line: underline;
@@ -290,7 +290,7 @@ grid-template-columns: auto auto auto auto auto
 .isi-c{
 	width: 100%;
 	position: relative;
-   	 min-height: 1px;
+  	min-height: 1px;
     	letter-spacing: 0.7px;
     	padding-right: -15px;
     	padding-left: -15px;
@@ -305,4 +305,3 @@ grid-template-columns: auto auto auto auto auto
 	margin-bottom: 0;
 	font-family: 'montserrat',sans-serif !important;
 }
-
