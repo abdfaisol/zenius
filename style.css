@@ -194,52 +194,54 @@ grid-template-columns: auto auto auto auto auto
 
 
 .footer{width: 100%; min-height: 150px; background-color: DarkGrey}
+
 .footer2-atas{
 	padding-top: 70px;
 	padding-bottom: 58px;
 	background-color: #e3e3e3;
 	border-bottom: 1px solid #fecf3a;
-	display: block;
+
 }
 	
 .con-fa{
-	width: 100%;
 	max-width: 1200px;
 	margin-right: auto;
 	margin-left: auto;	
 	padding-bottom: 30px;
 
+
 }
 .con2-fa{
 	margin-right: 15px;
-	margin-left: 15px;	
+	margin-left: 15px
 }
-
 .kiri-fa{
 	width: 33.33333333333333%;
 	position: relative;
-    	min-height: 1px;
+    min-height: 1px;
 	display: inline-block;
 	float: left;
+	
+	
 }
-
 .tengah-fa{
 	width: 33.333333333%;
 	position: relative;
-    	min-height: 1px;
-    	display: inline-block;
-    	float: center;
-    	margin-left: -15px;
-}
+    min-height: 1px;
+    display: inline-block;
+    float: center;
+   
 
+}
 .kanan-fa{
 	width: 33.333333333%;
 	position: relative;
-    	min-height: 1px;
-    	display: inline-block;
-    	float: right;
+    min-height: 1px;
+    display: inline-block;
+    float: right;
+    
 }
-.logo-footer{
+#logo-footer{
 	margin-left: 35px;
 	display: block;
 }
@@ -255,54 +257,56 @@ grid-template-columns: auto auto auto auto auto
 	font-family: 'montserrat',sans-serif !important;
 	color: #333;
 	text-decoration: none;
-	margin-left: -5px;
 	line-height: 24px;	
 }
 .con2-fa ul li a:hover{
 	text-decoration-line: underline;
 }
-.con2-fa h5{
+.con2-fa h4{
 	font-family: 'montserrat',sans-serif !important;
 	letter-spacing: 0.7px;
-	font-size: 13px;
-	font-weight: bold;
+	font-size: 14px;
 	line-height: 1.1;
 	color: #000;
 	margin-top: 10px;
-	margin-left: -7px;
 	margin-bottom: 3px;
+	font-weight: bold;
 }
+
+
 
 .footer-bawah{
 	background-color: #e3e3e3;
 	padding-top: 12px;
 	padding-bottom: 14px;
+	
 }
 
 .con-fb{
 	max-width: 1200px;
 	margin-right: auto;
 	margin-left: auto;
+	
+
 }
 .con2-fb{
 	margin-left: 15px;
 	margin-right: 15px;
+	
 }
 .isi-c{
-	width: 100%;
 	position: relative;
-  	min-height: 1px;
-    	letter-spacing: 0.7px;
-    	padding-right: -15px;
-    	padding-left: -15px;
+    min-height: 1px;
+    letter-spacing: 0.7px;
+    padding-right: -15px;
+    padding-left: -15px;
+
 }
 .footer-bawah p{
 	font-size: 13px;
 	font-weight: 2px;
-	margin: 0 0 10px;
 	text-align: right;
 	line-height: 18px;
 	color: #000;
-	margin-bottom: 0;
 	font-family: 'montserrat',sans-serif !important;
 }
