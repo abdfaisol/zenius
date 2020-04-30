@@ -233,9 +233,7 @@ grid-template-columns: auto auto auto auto auto
 .membership .button:hover{
 	background-color: #ccc
 }
-.h1Origin{
-	font-weight: 700
-}
+.h1Origin{font-weight: 700}
 .list{background-color: white; margin: 25px 0;box-shadow: 6px 9px 19px 1px #bba2a2}
 .list p{color: #fff;
     font-size: 18px; padding: 0; margin: 0}
@@ -246,12 +244,8 @@ grid-template-columns: auto auto auto auto auto
 .contentList p{color: black}
 .directionFlexColoum{flex-direction: column;}
 .bg3636{background: #363636 !important}
-.mb4{
-	width: 23%;
-}
-.tria{
-	height: 150px;
-}
+.mb4{width: 23%;}
+.tria{height: 150px;}
 .triangle{
 	z-index: 1;
     margin: auto;
@@ -266,12 +260,8 @@ grid-template-columns: auto auto auto auto auto
     right: 0;
     border-top: 48px solid #eaeaea;
 }
-.paddingSpaceLarge{
-	padding: 75px 0
-}
-.paddingSpaceMedium{
-	padding: 50px 0
-}
+.paddingSpaceLarge{padding: 75px 0}
+.paddingSpaceMedium{padding: 50px 0}
 .Sign{
 	box-shadow: 0 0 5px 2px rgba(0,0,0,0.15);
 	margin-top: 25px;
@@ -289,15 +279,9 @@ margin: 15px 0;
 }
 .button i{padding: 15px; border-right: 1px solid rgba(0,0,0,.1)}
 #bg-fb{background-color: #5a7099}
-#bg-tw {
-    background: #49aecb;
-}
-#bg-goog {
-    background: #df4a32;
-}
-#bg-app {
-    background: #000;
-}
+#bg-tw {background: #49aecb;}
+#bg-goog {background: #df4a32;}
+#bg-app {background: #000;}
 #bg-app i{border-right: 1px solid rgba(255,255,255,.1)}
 .sign-2{
 	padding: 15px;
@@ -349,12 +333,8 @@ margin: 15px 0;
 .sign-1 .form-control:focus{border-color: #fecf3a;box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset;}
 .feed-alert{font-size: 12px; display: none}
 .feed-alert p{padding: 0; margin: 0;}
-.mainPostVideo{
-	min-width: 75%;
-}
-.secondPostVideo{
-	margin-left: 25px;
-}
+.mainPostVideo{min-width: 75%;}
+.secondPostVideo{margin-left: 25px;}
 .totaltime{
 	padding: 5px;
 	font-size: 12px;
@@ -388,9 +368,11 @@ margin: 15px 0;
 	color: #fff;
     background: #1e8fe1;
 }
-#title-video{font-size: 18px;
-    font-weight: 500;}
-#title-video{border-bottom: 2px solid #fecf3a }
+#title-video{
+	font-size: 18px;
+    font-weight: 500;
+    border-bottom: 2px solid #fecf3a
+}
 .notif{
 	background: #feef8a;
 	padding: 20px 24px 15px;
