@@ -38,7 +38,7 @@
 .submemu ul li{
 	display: block
 }
-.submenu .contentsub{
+.menu .navbar .contentsub{
 	display: none;
 }
 .contentsub ul li{
@@ -57,7 +57,6 @@
 	justify-content:space-around	;	
 }
 .menu .navbar .container-fluid{
-	display: grid;
 	flex-wrap: nowrap;
 	align-items: normal;
 	justify-content: normal;
