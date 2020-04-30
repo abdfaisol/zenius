@@ -38,7 +38,7 @@
 .submemu ul li{
 	display: block
 }
-.contentsub{
+.submenu .contentsub{
 	display: none;
 }
 .contentsub ul li{
@@ -154,7 +154,6 @@
 }
 .form-inline input:focus{outline: none!important; border: none;}
 .wr{padding: 15px 0}
-
 /*Akses Footer Yogi*/
 .footer{width: 100%; min-height: 150px; background-color: DarkGrey}
 
