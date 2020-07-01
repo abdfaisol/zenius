@@ -1,0 +1,370 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+    background-color: #fff;
+}
+
+h1, h2, h3 {
+    margin: 0 0 25px;
+}
+
+.div{
+    display: block;
+}
+
+.site-content {
+    overflow-x: hidden;
+}
+
+#main {
+    background-color: #fff;
+    padding: 0;
+}
+
+.wereHiringPage .hiring-banner-tablet {
+    display: block;
+    padding: 0;
+}
+
+.col-md-12 {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+}
+
+.wereHiringPage .hiring-banner-tablet {
+    display: none;
+    height: 205px;
+}
+
+.wereHiringPage .hiring-banner-mobile {
+    display: none !important;
+    height: 148px;
+    padding: 0;
+}
+
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.tc {
+    text-align: center;
+}
+
+.hiring-s2 {
+    padding: 55px 167px;
+}
+
+.col-md-12 {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+}
+
+.hiring-s2 p {
+    font-size: 18px;
+    color: #000;
+    font-family: 'montserrat';
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.wereHiringPage .splited-hiring {
+    padding-bottom: 110px;
+}
+
+.ph4 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.wereHiringPage .splited-hiring .col-md-5 {
+    width: 42%;
+    float: left;
+}
+
+.wereHiringPage .splited-hiring .col-md-5 img, .splited-hiring .col-md-7 img {
+    width: 100%;
+}
+
+.col-md-5, .col-md-7, .col-md-12, .col-md-12{
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.row .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.wereHiringPage .splited-hiring .col-md-7 .bottom {
+    margin-top: 4.2%;
+}
+
+.wereHiringPage .splited-hiring .col-md-7 {
+    width: 58%;
+}
+
+.wereHiringPage .zenius-notes {
+    background-color: #efefef;
+    padding: 50px 0;
+}
+
+.wereHiringPage .zenius-notes {
+    background-color: #efefef;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.wereHiringPage .zenius-notes .content {
+    padding: 0 185px;
+}
+
+.wereHiringPage .zenius-notes h3 {
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    color: #000;
+    font-weight: bolder
+}
+
+.wereHiringPage .zenius-notes ul li {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: bold;
+}
+
+.wereHiringPage .zenius-notes ul li:before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: #666;
+    font-family: 'Montserrat',sans-serif;
+    text-shadow: 0 0 1px rgba(0,0,0,.01);
+}
+
+a, p, b, h1, h2, h3, h4, h5, h6 {
+    font-family: 'montserrat',sans-serif !important;
+}
+
+.wereHiringPage .zenius-notes ul {
+    padding: 30px 0;
+}
+
+.wereHiringPage .zenius-notes ul li {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    position: relative;
+ }
+
+ ul, li, ol {
+    line-height: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.wereHiringPage .positions {
+    padding: 70px 150px;
+}
+
+@media (min-width: 768px){
+.container .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+}
+.row:before, .row:after {
+    display: table;
+    content: " ";
+}
+
+.row:after {
+    clear: both;
+}
+
+.wereHiringPage .positions h3 {
+    text-align: center;
+    font-size: 28px;
+    position: relative;
+    margin: 0 0 25px;
+    font-family: 'montserrat',sans-serif !important;
+}
+
+@media (min-width: 992px){
+.col-md-12 {
+    width: 100%;    
+}
+}
+
+.col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.wereHiringPage .positions .list {
+    padding: 15px 0;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.wereHiringPage .positions .list .job-title {
+    font-size: 16px;
+    padding: 9px;
+}
+@media (min-width: 992px){
+.col-md-8 {
+    width: 66.66666666666666%;
+    float: left;
+}
+}
+
+.col-sm-4 .col-md-4 .col-ms-8 .col-md-8{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.wereHiringPage .positions .list .job-apply {
+    text-align: right;
+}
+@media (min-width: 992px){
+.col-md-4 {
+    width: 33.33333333333333%;
+    float: left
+}
+}
+
+.wereHiringPage .positions .list a.btn {
+    border-radius: 0;
+    padding: 10px 12px;
+    border: 3px solid #f7c519;
+    color: #e0cb0e;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+
+
+.wereHiringPage .lost-in-space {
+    background-color: #efefef;
+
+}
+
+.wereHiringPage .lost-in-space .container{
+	background-image: url('img/illust_hiring.png');
+	background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: left center;
+
+}
+
+.wereHiringPage .lost-in-space .content {
+    padding: 80px 0 80px 80px;
+}
+
+.col-md-offset-5 {
+    margin-left: 41.66666666666667%;
+}
+
+.col-md-6 {
+    width: 50%;
+    float: left;
+}
+
+
+
+.wereHiringPage .lost-in-space h3 {
+    font-size: 28px;
+        color: #000;
+    font-weight: bolder;
+}
+
+.wereHiringPage .lost-in-space .content img {
+    display: none;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.wereHiringPage .lost-in-space p {
+    font-size: 18px;
+}
+
+.wereHiringPage p {
+    color: #000;
+}
+
+.content p {
+    text-align: left;
+}
