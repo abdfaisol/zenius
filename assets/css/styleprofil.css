@@ -1,0 +1,150 @@
+@media (max-width: 425px) {
+  .mobile-flex-column {
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .mobile-flex-row {
+    flex-direction: row!important;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.btn-link {
+  border: none;
+  background-color: transparent;
+}
+
+.btn-link:hover, .btn-link:focus {
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.show-data {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .tablet-flex-column {
+    flex-direction: column;
+  }
+}
+
+.edit-data-c {
+  display: none;
+}
+
+.title-label {
+  font-weight: bolder;
+}
+
+.title-data {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #eee;
+  padding: 15px 0;
+}
+
+.tambah-data {
+  background-color: #fff;
+  color: black;
+  font-weight: bolder;
+  font-size: 14px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+  border-color: #fff;
+}
+
+.tambah-data:hover, .tambah-data:focus, .tambah-data:active {
+  border-color: #adadad;
+  color: white;
+  background-color: #666;
+}
+
+.option-server .activee:hover, .option-server .activee:focus, .option-server .activee:active {
+  border-color: #adadad !important;
+  color: white !important;
+  background-color: #666 !important;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+}
+
+.table-member th {
+  border: 1px solid #e6e6e6;
+}
+
+.table-membership td:hover {
+  background-color: rgba(211,174,87,0.54);
+  cursor: pointer;
+}
+
+.title-data h3 {
+  margin: 0;
+}
+
+.option-server .activee {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+.button i {
+  padding: 15px;
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+
+#bg-fb {
+  background-color: #5a7099;
+}
+
+#bg-tw {
+  background: #49aecb;
+}
+
+#bg-goog {
+  background: #df4a32;
+}
+
+#bg-app {
+  background: #000;
+}
+
+#bg-app i {
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.button {
+  text-align: left;
+  padding: 0 5px;
+  color: white;
+  width: 100%;
+  box-shadow: inset 0 2px 0 1px rgba(255,255,255,0.21), 0 1px 2px 1px rgba(0,0,0,0.6);
+  margin: 15px 0;
+  font-weight: bolder;
+  border: none;
+}
+
+.button a {
+  font-weight: bolder;
+  color: white;
+}
+
+.button a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.breadcump {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,.1);
+  box-shadow: 0 0 3px rgba(0,0,0,.1);
+  background: -webkit-gradient(linear,0% 0%,0% 100%,from(#f8f8f8),to(#fafafa));
+  background: -webkit-linear-gradient(top,#f8f8f8,#fafafa);
+  margin-bottom: 4rem;
+}
+
