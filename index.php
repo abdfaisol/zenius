@@ -75,7 +75,7 @@ include "backend/sesi.php";
 							<!-- SD -->
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<a class="nav-link dropdown-toggle" href="sd.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										SD <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
@@ -757,9 +757,10 @@ include "backend/sesi.php";
 								<li class="nav-item">
 									<a class="nav-link" href="blog.php">Blog</a>
 								</li>
-								<!-- Belajar Mandiri -->
+								<!-- 
+-->
 								<li class="nav-item">
-									<a class="nav-link" href="#">Belajar Mandiri</a>
+									<a class="nav-link" href="mandiri.php">Belajar Mandiri</a>
 								</li>
 							</ul>
 							<form class="form-inline relative" method="POST" action="cari.php">

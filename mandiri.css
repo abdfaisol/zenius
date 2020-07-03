@@ -1,0 +1,26 @@
+.col-sm-12 img {
+    width: 100%;
+}
+
+.row h4 {
+    color: red;
+}
+
+.col-sm-6 {
+    padding: 9px;
+}
+.col-sm-6 img {
+    width: 100%;
+}
+
+.row h2 {
+    color: #666;
+}
+
+.col-sm-12 {
+    margin: 20px;
+}
+
+.col-sm-12 h2 {
+    color: #666;
+}
