@@ -1,34 +1,65 @@
+<?php
+include "backend/koneksi.php";
+include "backend/sesi.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Kinematika</title>
+	<title>Home- Zenius Education</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="menu.css">
-	<link rel="stylesheet" type="text/css" href="file:///C:/Users/Asus/Documents/Website/Tools/bootstrap-4.4.1/css/bootstrap.min.css">
-	<script src="file:///C:/Users/Asus/Documents/Website/CSS/Design-blog/file-support/jquery-3.4.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="C:\Users\Asus\Documents\Website\CSS\Design-blog\file-support\Font Awesome Pro\css\all.css">
+	<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="https://www.zenius.net/wp-content/uploads/2020/03/zenius-1.png">
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/32fdde2d59.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<!-- Header Menu -->
 	<div class="header-menu">
 		<div class="head">
 			<div class="head1 full-w flex centerMargin">
-				<img src="img/logo-zeniusnet3.png" height="50">
+				<img src="img/logo-zeniusnet3.png" height="63">
 				<div class="head2">
 					<ul>
-						<li><a href="Sign-up.html">SIGN UP</a></li>
-						<li><a href="log-in.html">LOG IN</a></li>
+						<?php 
+						$linku = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+						?>
+						<?php 
+						if (!isset($_SESSION['email'])) {
+ 		// ـJika tidak ada sesi
+							?>
+						<li><a href="daftar.php?return=<?=$linku ?>">SIGN UP</a></li>
+						<li><a href="login.php?return=<?=$linku ?>">LOG IN</a></li>
 						<li>MEMBERSHIP <i class="fas fa-angle-down"></i>
 							<ul>
-								<li><a href="membership.html">Beli</a></li>
-								<li><a href="">Konfirmasi Pembyaran</a></li>
+								<li><a href="membership.php">Beli</a></li>
+								<li><a href="">Konfirmasi Pembayaran</a></li>
 								<li><a href="">Aktivasi</a></li>
 							</ul>
 						</li>
+						<?php
+					}else{
+						?>
+						<li id="userku">HALO, Abdullah <i class="fas fa-angle-down"></i> <i class="far fa-user"></i>
+							<ul>
+								<li id="titleUser">Abdullah <br> <p id="statusUserKu">Premium</p></li>
+								<li id="titleUser">AKUN SAYA</li>
+								<li><a href="profil.php">Edit Profile</a></li>
+								<li><a href="help.php">Bantuan</a></li>
+								<li id="titleUser">MEMBERSHIP</li>
+								<li><a href="beli.php">Beli</a></li>
+								<li><a href="konfirmasi.php">Konfirmasi Pembayaran</a></li>
+								<li><a href="aktivasi.php">Aktivasi</a></li>
+								<li id="titleUser" class="except"><a href="logout.php">Sign Out</a></li>
+							</ul>
+						</li>
+						<?php 
+					}
+					?>
 					</ul>
 				</div>
 			</div>
@@ -42,7 +73,7 @@
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										SD
+										SD <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
 										<li>
@@ -82,11 +113,8 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="#">Kelas 1 SD</a></li>
+																				<li><a href="sd/1mat.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -95,11 +123,8 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="#">Kelas 2 SD</a></li>
+																				<li><a href="sd/2mat.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -108,11 +133,8 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">Kelas 3 SD</a></li>
+																				<li><a href="">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -121,11 +143,10 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">Kelas 4 SD</a></li>
+																				<li><a href="">Matematika</a></li>
+																				<li><a href="">Sains</a></li>
+																				<li><a href="">Bahasa Inggris</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -134,11 +155,10 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kelas 5 SD</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>Sains</a></li>
+																				<li><a>Bahasa Inggris</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -147,11 +167,11 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kelas 6 SD</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>Sains</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Bahasa Inggris</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -160,11 +180,10 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>UN SD</a></li>
+																				<li><a>UN SD Matematika</a></li>
+																				<li><a>UN SD Sains</a></li>
+																				<li><a>UN SD Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -180,7 +199,7 @@
 								<!-- SMP -->
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										SMP
+										SMP <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
 										<li>
@@ -210,20 +229,21 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">KTSP</a></li>
+																				<li><a href="/cg/29/matematika-smp-kelas-7-ktsp" >Matematika</a></li>
+																				<li><a href="/cg/27/fisika-smp-kelas-7">Fisika</a></li>
+																				<li><a href="/cg/28/biologi-smp-kelas-7-ktsp">Biologi</a></li>
+																				<li><a href="/cg/26/bahasa-inggris-smp-kelas-7-ktsp">Bahasa Inggris</a></li>
+																				<li><a href="/cg/528/bahasa-indonesia-smp-kelas-7-ktsp">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">Kurikulum 2013</a></li>
+																				<li><a href="/cg/641/matematika-smp-kelas-7-kurikulum-2013" >Matematika</a></li>
+																				<li><a href="/cg/1775/ipa-smp-kelas-7-kurikulum-2013" >IPA</a></li>
+																				<li><a href="/cg/644/bahasa-inggris-smp-kelas-7-kurikulum-2013" >Bahasa Inggris</a></li>
+																				<li><a href="/cg/645/bahasa-indonesia-smp-kelas-7-kurikulum-2013" >Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -232,20 +252,21 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">KTSP</a></li>
+																				<li><a href="/cg/33/matematika-smp-kelas-8">Matematika</a></li>
+																				<li><a href="/cg/31/fisika-smp-kelas-8">Fisika</a></li>
+																				<li><a href="/cg/32/biologi-smp-kelas-8">Biologi</a></li>
+																				<li><a href="/cg/30/bahasa-inggris-smp-kelas-8">Bahasa Inggris</a></li>
+																				<li><a href="/cg/529/bahasa-indonesia-smp-kelas-8">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">Kurikulum 2013</a></li>
+																				<li><a href="/cg/646/matematika-smp-kelas-8-kurikulum-2013">Matematika</a></li>
+																				<li><a href="/cg/1778/ipa-smp-kelas-8-kurikulum-2013">IPA</a></li>
+																				<li><a href="/cg/649/bahasa-inggris-smp-kelas-8-kurikulum-2013">Bahasa Inggris</a></li>
+																				<li><a href="/cg/650/bahasa-indonesia-smp-kelas-8-kurikulum-2013">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>					
 																	</div>
@@ -254,20 +275,20 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">KTSP</a></li>
+																				<li><a href="/cg/1022/matematika-smp-kelas-9-kurikulum-2013">Matematika</a></li>
+																				<li><a href="/cg/1780/ipa-smp-kelas-9-kurikulum-2013">IPA</a></li>
+																				<li><a href="/cg/1026/bahasa-inggris-kelas-9-kurikulum-2013">Bahasa Inggris</a></li>
+																				<li><a href="/cg/1025/bahasa-indonesia-kelas-9-smp-kurikulum-2013">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a href="">Kurikulum 2013</a></li>
+																				<li><a href="/cg/646/matematika-smp-kelas-8-kurikulum-2013">Matematika</a></li>
+																				<li><a href="/cg/1778/ipa-smp-kelas-8-kurikulum-2013">IPA</a></li>
+																				<li><a href="/cg/649/bahasa-inggris-smp-kelas-8-kurikulum-2013">Bahasa Inggris</a></li>
+																				<li><a href="/cg/650/bahasa-indonesia-smp-kelas-8-kurikulum-2013">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>					
 																	</div>
@@ -276,20 +297,19 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Persiapan per bab</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>IPA</a></li>
+																				<li><a>Bahasa Inggris</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Soal UN SMP</a></li>
+																				<li><a>UN SMP Matematika</a></li>
+																				<li><a>UN SMP IPA</a></li>
+																				<li><a>UN SMP Bahasa Indonesia</a></li>
+																				<li><a>UN SMP Bahasa Inggris</a></li>
 																			</ul>
 																		</div>					
 																	</div>
@@ -305,7 +325,7 @@
 								<!-- SMA -->
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										SMA
+										SMA <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
 										<li>
@@ -342,56 +362,66 @@
 																	<div class="row">
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>KTSP</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																				<li><a>Kimia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah</a></li>															
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kurikulum 2013</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Wajib</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li><a>Kurikulum 2013 Revisi</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li class="fill"></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Wajib</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
 																			</ul>
 																		</div>
 
@@ -401,56 +431,65 @@
 																	<div class="row">
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>KTSP</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																				<li><a>Kimia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Sejarah</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kurikulum 2013</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																				<li><a>Kimia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Wajib</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li><a>Kurikulum 2013 Revisi</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li class="fill"></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Wajib</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
 																			</ul>
 																		</div>
 
@@ -460,56 +499,66 @@
 																	<div class="row">
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>KTSP</a></li>
+																				<li><a>Matematika</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																				<li><a>Biologi</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sejarah</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																			</ul>
-																		</div>
-																		<div class="col-sm">
-																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kurikulum 2013</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Indonesia</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li><a>Kurikulum 2013 Revisi</a></li>
+																				<li><a>Matematika Wajib</a></li>
+																				<li><a>Matematika Peminatan</a></li>
+																				<li><a>Bahasa Inggris</a></li>
+																				<li><a>Bahasa Indonesia</a></li>
+																				<li><a>Fisika</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm">
+																			<ul>
+																				<li class="fill"></li>
+																				<li><a>Kimia</a></li>
+																				<li><a>Biologi</a></li>
+																				<li><a>Ekonomi</a></li>
+																				<li><a>Sosiologi</a></li>
+																				<li><a>Geografi</a></li>
+																				<li><a>Sejarah Indonesia</a></li>
+																				<li><a>Sejarah Peminatan</a></li>
 																			</ul>
 																		</div>
 
@@ -519,20 +568,22 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>UN SMA</a></li>
+																				<li><a>UN SMA Matematika IPA</a></li>
+																				<li><a>UN SMA Matematika IPS</a></li>
+																				<li><a>UN SMA Bahasa Inggris</a></li>
+																				<li><a>UN SMA Bahasa Indonesia</a></li>
+																				<li><a>UN SMA Fisika</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>UN SMA Kimia</a></li>
+																				<li><a>UN SMA Biologi</a></li>
+																				<li><a>UN SMA Ekonomi</a></li>
+																				<li><a>UN SMA Geografi</a></li>
+																				<li><a>UN SMA Sosiologi</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -541,20 +592,26 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>UN SMK AKP</a></li>
+																				<li><a>UN SMK Matematika AKP</a></li>
+																				<li><a>UN SMK Bahasa Inggris AKP</a></li>
+																				<li><a>UN SMK Bahasa Indonesia AKP</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
-																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>UN SMK PSP</a></li>
+																				<li><a>UN SMK Matematika PSP</a></li>
+																				<li><a>UN SMK Bahasa Inggris PSP</a></li>
+																				<li><a>UN SMK Bahasa Indonesia PSP</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm-3">
+																			<ul>
+																				<li><a>UN SMK TKP</a></li>
+																				<li><a>UN SMK Matematika TKP</a></li>
+																				<li><a>UN SMK Bahasa Inggris TKP</a></li>
+																				<li><a>UN SMK Bahasa Indonesia TKP</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -570,7 +627,7 @@
 								<!-- UTBK -->
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										UTBK
+										UTBK <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
 										<li>
@@ -604,20 +661,19 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>TPS UTBK</a></li>
+																				<li><a>Penalaran Umum</a></li>
+																				<li><a>Soal Penalaran Umum</a></li>
+																				<li><a>Penalaran Verbal PBM dan PPU</a></li>
+																				<li><a>Soal Penalaran Verbal PBM dan PPU</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Pengetahuan Kuantitatif</a></li>
+																				<li><a>Soal Pengetahuan Kuantitatif</a></li>
+
 																			</ul>
 																		</div>
 																	</div>
@@ -626,20 +682,21 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Saintek UTBK</a></li>
+																				<li><a>Matematika IPA UTBK</a></li>
+																				<li><a>Soal Matematika IPA UTBK</a></li>
+																				<li><a>Fisika (Ringkas) UTBK</a></li>
+																				<li><a>Fisika (Lengkap) UTBK</a></li>
+																				<li><a>Soal Fisika UTBK</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Kimia UTBK</a></li>
+																				<li><a>Soal Kimia UTBK</a></li>
+																				<li><a>Biologi UTBK</a></li>
+																				<li><a>Soal Biologi UTBK</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -648,20 +705,27 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Soshum UTBK</a></li>
+																				<li><a>Matematika Soshum UTBK</a></li>
+																				<li><a>Soal Matematika Soshum UTBK</a></li>
+																				<li><a>Materi Ekonomi UTBK</a></li>
+																				<li><a>Soal Ekonomi UTBK</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
 																			<ul>
 																				<li class="fill"></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Materi Geografi UTBK</a></li>
+																				<li><a>Soal Geografi UTBK</a></li>
+																				<li><a>Materi Sejarah UTBK</a></li>
+																				<li><a>Soal Sejarah UTBK</a></li>
+																			</ul>
+																		</div>
+																		<div class="col-sm-3">
+																			<ul>
+																				<li class="fill"></li>
+																				<li><a>Materi Sosiologi UTBK</a></li>
+																				<li><a>Soal Sosiologi UTBK</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -670,11 +734,10 @@
 																	<div class="row">
 																		<div class="col-sm-3">
 																			<ul>
-																				<li><a href="">Title</a></li>
-																				<li><a href="tugas/lucky/Latihan/Materi">Kinematika</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
-																				<li><a href="">List</a></li>
+																				<li><a>Ujian Mandiri</a></li>
+																				<li><a>SIMAK UI</a></li>
+																				<li><a>USM STAN</a></li>
+																				<li><a>UTUL UGM</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -751,7 +814,10 @@
 								</div>
 							</div>
 							<div class="height500" style="background: black;margin: 20px 0;">
+								<video width="100%" height="100%" controls>
 
+
+								</video>
 							</div>
 							<div class="navi flex grow justifyBetween">
 								<button class="button"><i class="fas fa-chevron-circle-left"></i> Overview Kinematika</button>
@@ -769,8 +835,21 @@
 						</div>
 						<div class="daftarVideo grow relative">
 							<div class="play-list full-w">
-								<div class="flex directionFlexColoum">
-									<div class="list-video active">
+								<?php
+								if (!isset($_SESSION['email'])){
+									?>
+									<div class="flex directionFlexColoum">
+										<?php  
+
+									}else{
+										?>
+										<div id="vid" class="flex directionFlexColoum">
+											<?="False"?>
+											<?php 
+
+										}
+										?>
+									<div class="list-video active" id="01">
 										<div class="flex directionFlexRow grow">
 											<div class="coba grow flex directionFlexRow" >
 												<span><i class="fas fa-pause"></i></span>
@@ -781,7 +860,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="list-video">
+									<div class="list-video" id="02">
 										<div class="flex directionFlexRow grow">
 											<div class="coba grow flex directionFlexRow" >
 												<span><img src="img/marker_board.png"></span>
@@ -792,7 +871,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="list-video">
+									<div class="list-video" id="03">
 										<div class="flex directionFlexRow grow">
 											<div class="coba grow flex directionFlexRow" >
 												<span><img src="img/marker_board.png"></span>
@@ -803,107 +882,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									<div class="list-video">
-										<div class="flex directionFlexRow grow">
-											<div class="coba grow flex directionFlexRow" >
-												<span><img src="img/marker_board.png"></span>
-												<p>Overview Kinematika</p>
-											</div>
-											<div class="time">
-												<i class="far fa-clock"></i> 02:13
-											</div>
-										</div>
-									</div>
-									
-								</div>
+									<?= "</div>"?>
 							</div>	
 					</div>
 				</div>
@@ -1137,6 +1116,27 @@
   }, false);
 })();
 </script>
-<script src="zenius.js"></script><script src="https://abdfaisol.github.io/zenius/tugas/faisol/menu.js"></script>
+<script src="zenius.js">
+	
+</script><script src="https://abdfaisol.github.io/zenius/tugas/faisol/menu.js"></script>
+<script type="text/javascript">
+		$("#vid .list-video").click(function(){
+			var a = $(this).attr("id");
+			console.log('click');
+			$("video").empty();
+			$("video").append("<source></source>")
+			$("iframe").removeAttr("src");
+			$("iframe").attr("src","http://localhost/zenius/video/"+a+".mp4");
+			$("video source").attr("src","http://localhost/zenius/video/"+a+".mp4");
+			$("video")[0].load();
+		})
+		$("#ply").click(function(){
+			$("video").trigger('play');
+		})
+		$(".list-video").click(function(){
+			$(".list-video").removeClass("active");
+			$(this).addClass("active");
+		})
+	</script>
 </body>
 </html>

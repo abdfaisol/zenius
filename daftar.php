@@ -30,7 +30,7 @@ include "backend/sesi.php";
 	<div class="header-menu">
 		<div class="head">
 			<div class="head1 full-w flex centerMargin">
-				<img src="img/logo-zeniusnet3.png" height="63">
+				<a href="http://localhost/zenius"><img src="img/logo-zeniusnet3.png" height="63"></a>
 				<div class="head2">
 					<ul>
 						<?php 
@@ -40,26 +40,28 @@ include "backend/sesi.php";
 						if (!isset($_SESSION['email'])) {
  		// ـJika tidak ada sesi
 							?>
-						<li><a href="daftar.php">SIGN UP</a></li>
-						<li><a href="login.php">LOG IN</a></li>
+						<li><a href="daftar.php?return=<?=$linku ?>">SIGN UP</a></li>
+						<li><a href="login.php?return=<?=$linku ?>">LOG IN</a></li>
 						<li>MEMBERSHIP <i class="fas fa-angle-down"></i>
 							<ul>
 								<li><a href="membership.php">Beli</a></li>
-								<li><a href="">Konfirmasi Pembayaran</a></li>
-								<li><a href="">Aktivasi</a></li>
+								<li><a href="http://localhost/zenius">Konfirmasi Pembayaran</a></li>
+								<li><a href="aktivasi.php">Aktivasi</a></li>
 							</ul>
 						</li>
 						<?php
 					}else{
+						$data = mysqli_fetch_array(mysqli_query($db,"SELECT * FROM member WHERE email = '$s'"));
+						$timeoff = (int)$data['timeoff'];
 						?>
-						<li id="userku">HALO, Abdullah <i class="fas fa-angle-down"></i> <i class="far fa-user"></i>
+						<li id="userku">HALO, <?=$data['nickname'] ?> <i class="fas fa-angle-down"></i> <i class="far fa-user"></i>
 							<ul>
-								<li id="titleUser">Abdullah <br> <p id="statusUserKu">Premium</p></li>
+								<li id="titleUser">Abdullah <br> <p id="statusUserKu"><?php if ($timeoff < time()) {echo "Regular";}else{echo "Premium";} ?></p></li>
 								<li id="titleUser">AKUN SAYA</li>
 								<li><a href="profil.php">Edit Profile</a></li>
 								<li><a href="help.php">Bantuan</a></li>
 								<li id="titleUser">MEMBERSHIP</li>
-								<li><a href="beli.php">Beli</a></li>
+								<li><a href="membership.php">Beli</a></li>
 								<li><a href="konfirmasi.php">Konfirmasi Pembayaran</a></li>
 								<li><a href="aktivasi.php">Aktivasi</a></li>
 								<li id="titleUser" class="except"><a href="logout.php">Sign Out</a></li>
@@ -122,7 +124,7 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="#">Kelas 1 SD</a></li>
-																				<li><a href="sd/1mat.php">Matematika</a></li>
+																				<li><a href="materi.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -132,7 +134,7 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="#">Kelas 2 SD</a></li>
-																				<li><a href="sd/2mat.php">Matematika</a></li>
+																				<li><a href="materi.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -792,7 +794,7 @@ include "backend/sesi.php";
 					<span class="relative">atau</span>
 				</div>
 				<div class="sign-1">
-					<form class="needs-validation" method="POST" novalidate>
+					<form class="needs-validation" method="POST" action="prosesdaftar.php" novalidate>
 						<div class="feed-alert">
 							Tulis e-mail dengan format yang benar
 						</div>
@@ -815,30 +817,12 @@ include "backend/sesi.php";
 						</div>
 						<button type="submit" class="button" name="submit" width="100%">Daftar</button>
 						<p style="padding: 15px 0;" align="center">
-							Dengan menekan tombol 'Daftar', maka kamu menyetujui <a href="">Ketentuan Penggunaan</a>
+							Dengan menekan tombol 'Daftar', maka kamu menyetujui <a href="privacy.php">Ketentuan Penggunaan</a>
 						</p>
 						<p style="padding: 15px 0" align="center">
 							Sudah memiliki akun? <a href="login.php">Masuk sekarang</a>
 						</p>
 					</form>
-					<?php 
-
-					if (isset($_POST['submit'])) 
-					{
-						$general = time()+60*60*24*5;
-						$general = (float) $general;
-						$sql = "INSERT INTO member(email, nickname, password, timeoff) VALUES ('$_POST[email]','$_POST[nickname]','$_POST[pass]','$general')";
-						$cek = "cekgagal";
-						if(mysqli_query($db, $sql)){
-							$_SESSION['email'] = $_POST[email];
-							header("Location: http://localhost/zenius/");
-						}else{
-							$cek = "gagal";
-						}
-
-					}
-
-					?>
 				</div>
 			</div>
 		</div>
@@ -995,6 +979,6 @@ include "backend/sesi.php";
 }, false);
 })();
 </script>
-<script src="zenius.js"></script><script src="https://abdfaisol.github.io/zenius/tugas/faisol/menu.js"></script>
+<script src="zenius.js"></script><script src="menu.js"></script>
 </body>
 </html>

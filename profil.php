@@ -44,7 +44,8 @@ include "backend/sesi.php";
                         'kelas'=> $row['kelas'],
                         'kurikulum' => $row['kurikulum'],
                         'school' => $row['sekolah'],
-                        'video' => $row['video']
+                        'video' => $row['video'],
+                        'jurusan' => $row['video']
                     ];
 
         }
@@ -145,7 +146,7 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="#">Kelas 1 SD</a></li>
-                                                                                <li><a href="sd/1mat.php">Matematika</a></li>
+                                                                                <li><a href="materi.php">Matematika</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -878,7 +879,13 @@ include "backend/sesi.php";
                     </div>
                     <div class="col-sm-7 show-data" style="padding: 0;">
                         <p style="display:inline" class="showdata"><?=$data['status_user']?></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-                    <div class="col-sm-6 edit-data-c form" style="padding: 0;"><input type="text" class="form-control isine"></div>
+                    <div class="col-sm-6 edit-data-c form" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
+                    <option <?php if ($data['status_user']=="-" or empty($data['status_user'])) {echo "selected";}?>>-</option>
+                            <option value="Siswa" <?php if($data['status_user']=="Siswa"){echo "selected";} ?>>Siswa</option>
+                            <option value="Guru" <?php if($data['status_user']=="Guru"){echo "selected";} ?>>Guru</option>
+                            <option value="Orang Tua" <?php if($data['status_user']=="Orang Tua"){echo "selected";} ?>>Orang Tua</option>
+                            <option value="Umum" <?php if($data['status_user']=="Umum"){echo "selected";} ?>>Umum</option>
+                </optgroup></select></div>
                     <div class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="status_user">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
                             style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
                 </div>
@@ -888,7 +895,7 @@ include "backend/sesi.php";
                     </div>
                     <div class="col-sm-7 show-data" style="padding: 0;">
                         
-                        <?php $nomorhp = $data['hportu']; if(empty($nomorhp)){?><button class="btn btn-primary tambah-data show-edit" type="button">Tambah</button><?php }else{?><p style="display:inline" class="showdata"><?=$data['hp']?>&nbsp;<i class="fa fa-check-circle" style="color: green;"></i></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button><?php } ?>
+                        <?php $nomorhp = $data['hp']; if(empty($nomorhp)){?><a href="hp.php"><button class="btn btn-primary tambah-data show-edit" type="button">Tambah</button></a><?php }else{?><p style="display:inline" class="showdata"><?=$data['hp']?>&nbsp;<i class="fa fa-check-circle" style="color: green;"></i></p><a href="hp.php"><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></a><?php } ?>
                     </div>
                     <div
                         class="col-sm-6 edit-data-c form" style="padding: 0;"><input type="text" class="form-control isine"></div>
@@ -899,9 +906,9 @@ include "backend/sesi.php";
                 <div class="col-sm-3 title-label" style="padding: 0;">
                     <p>Nomor HP Orang Tua</p>
                 </div>
-                <div class="col-sm-7 show-data" style="padding: 0;"><?php $nomorhp = $data['hportu']; if(empty($nomorhp)){?><button class="btn btn-primary tambah-data" type="button">Tambah</button><?php }else{?><p style="display:inline" class="showdata"><?=$data['hportu']?>&nbsp;</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button><?php } ?></div>
+                <div class="col-sm-7 show-data" style="padding: 0;"><?php $nomorhp = $data['hportu']; if(empty($nomorhp)){?><button class="btn btn-primary tambah-data show-edit" type="button">Tambah</button><?php }else{?><p style="display:inline" class="showdata"><?=$data['hportu']?>&nbsp;</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button><?php } ?></div>
                 <div class="col-sm-6 edit-data-c form" style="padding: 0;"><input type="text" class="form-control isine"></div>
-                <div class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
+                <div class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="hportu">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
                         style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
             </div>
         </div>
@@ -942,14 +949,14 @@ include "backend/sesi.php";
                 </div>
                 <div class="col-sm-7 show-data" style="padding: 0;">
                     <p style="display:inline" class="showdata"><?=$data['jenjang']?></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-                <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
-                    <option <?php if ($data['status_user']=="NaN" or empty($data['status_user'])) {echo "selected";}?>>-</option>
-                        <option value="sd" <?php if($data['jenjang']=="sd"){echo "selected";} ?>>SD atau sederajat</option>
-                        <option value="smp" <?php if($data['jenjang']=="smp"){echo "selected";} ?>>SMP atau sederajat</option>
-                        <option value="smk" <?php if($data['jenjang']=="smk"){echo "selected";} ?>>SMK</option>
-                        <option value="sma" <?php if($data['jenjang']=="sma"){echo "selected";} ?>>SMA</option>
-                        <option value="sma2" <?php if($data['jenjang']=="sma2"){echo "selected";} ?>>sederajat SMA</option>
-                        <option value="lulus" <?php if($data['jenjang']=="lulus"){echo "selected";} ?>>Alumni</option>
+                <div class="col-sm-6 edit-data-c optional" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
+                    <option <?php if ($data['status_user']=="-" or empty($data['status_user'])) {echo "selected";}?>>-</option>
+                        <option value="SD atau sederajat" <?php if($data['jenjang']=="SD atau sederajat"){echo "selected";} ?>>SD atau sederajat</option>
+                        <option value="SMP atau sederajat" <?php if($data['jenjang']=="SMP atau sederajat"){echo "selected";} ?>>SMP atau sederajat</option>
+                        <option value="SMK" <?php if($data['jenjang']=="SMK"){echo "selected";} ?>>SMK</option>
+                        <option value="SMA" <?php if($data['jenjang']=="SMA"){echo "selected";} ?>>SMA</option>
+                        <option value="sederajat SMA" <?php if($data['jenjang']=="sederajat SMA"){echo "selected";} ?>>sederajat SMA</option>
+                        <option value="Alumni" <?php if($data['jenjang']=="Alumni"){echo "selected";} ?>>Alumni</option>
                 </optgroup></select></div>
                 <div
                     class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="jenjang">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
@@ -960,10 +967,14 @@ include "backend/sesi.php";
                 <p>Jurusan</p>
             </div>
             <div class="col-sm-7 show-data" style="padding: 0;">
-                <p style="display:inline" class="showdata"><?php  ?>IPA</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-            <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                <p style="display:inline" class="showdata"><?=$data['jurusan']?></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div><div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
+                    <option <?php if ($data['status_user']=="-" or empty($data['status_user'])) {echo "selected";}?>>-</option>
+                        <option value="IPA" <?php if($data['jurusan']=="IPA"){echo "selected";} ?>>IPA</option>
+                        <option value="IPS" <?php if($data['jurusan']=="IPS"){echo "selected";} ?>>IPS</option>
+                        <option value="Bahasa" <?php if($data['jurusan']=="Bahasa"){echo "selected";} ?>>Bahasa</option>
+                </optgroup></select></div>
             <div
-                class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
+                class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="jurusan">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
                     style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
     </div>
     <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
@@ -971,10 +982,16 @@ include "backend/sesi.php";
             <p>Kurikulum</p>
         </div>
         <div class="col-sm-7 show-data" style="padding: 0;">
-            <p style="display:inline" class="showdata"><?php  ?>Kurikulum 2013 Revisi</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-        <div
-            class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
+            <p style="display:inline" class="showdata"><?=$data['kurikulum']?></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
+        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
+                    <option <?php if ($data['status_user']=="-" or empty($data['status_user'])) {echo "selected";}?>>-</option>
+                        <option value="KTSP" <?php if($data['kurikulum']=="KTSP"){echo "selected";} ?>>KTSP</option>
+                        <option value="Kurikulum 2013" <?php if($data['kurikulum']=="Kurikulum 2013"){echo "selected";} ?>>Kurikulum 2013</option>
+                        <option value="Kurikulum 2013 Revisi" <?php if($data['kurikulum']=="Kurikulum 2013 Revisi"){echo "selected";} ?>>Kurikulum 2013 Revisi</option>
+                        <option value="Lainnya" <?php if($data['kurikulum']=="Lainnya"){echo "selected";} ?>>Lainnya</option>
+                </optgroup></select></div>
+            <div
+                class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="kurikulum">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
     </div>
     <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
         <div class="col-sm-3 title-label" style="padding: 0;">
@@ -990,79 +1007,35 @@ include "backend/sesi.php";
             <p>Kelas</p>
         </div>
         <div class="col-sm-7 show-data" style="padding: 0;">
-            <p style="display:inline" class="showdata"><?php  ?>12</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-        <div
-            class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
-    </div>
-    </div>
-    </div>
-    <div style="margin: 10px 0;">
-        <div class="title-data">
-            <h3 style="color: #666;">Info Pendidikan<br></h3>
-        </div>
-        <div>
-            <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
-                <div class="col-sm-3 title-label" style="padding: 0;">
-                    <p>Jenjang</p>
-                </div>
-                <div class="col-sm-7 show-data" style="padding: 0;">
-                    <p style="display:inline" class="showdata"><?php  ?>SMA</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-                <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-                <div
-                    class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
-                        style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
-        </div>
-        <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
-            <div class="col-sm-3 title-label" style="padding: 0;">
-                <p>Jurusan</p>
-            </div>
-            <div class="col-sm-7 show-data" style="padding: 0;">
-                <p style="display:inline" class="showdata"><?php  ?>IPA</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-            <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+            <p style="display:inline" class="showdata"><?=$data['kelas']?></p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
+        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control option" style="font-size: 14px;"><optgroup label="This is a group">
+                    <option <?php if ($data['status_user']=="-" or empty($data['status_user'])) {echo "selected";}?>>-</option>
+                        <option value="1" <?php if($data['kelas']=="1"){echo "selected";} ?>>1</option>
+                        <option value="2" <?php if($data['kelas']=="2"){echo "selected";} ?>>2</option>
+                        <option value="3" <?php if($data['kelas']=="3"){echo "selected";} ?>>3</option>
+                        <option value="4" <?php if($data['kelas']=="4"){echo "selected";} ?>>4</option>
+                        <option value="5" <?php if($data['kelas']=="5"){echo "selected";} ?>>5</option>
+                        <option value="6" <?php if($data['kelas']=="6"){echo "selected";} ?>>6</option>
+                        <option value="7" <?php if($data['kelas']=="7"){echo "selected";} ?>>7</option>
+                        <option value="8" <?php if($data['kelas']=="8"){echo "selected";} ?>>8</option>
+                        <option value="9" <?php if($data['kelas']=="9"){echo "selected";} ?>>9</option>
+                        <option value="10" <?php if($data['kelas']=="10"){echo "selected";} ?>>10</option>
+                        <option value="11" <?php if($data['kelas']=="11"){echo "selected";} ?>>11</option>
+                        <option value="12" <?php if($data['kelas']=="12"){echo "selected";} ?>>12</option>
+                </optgroup></select></div>
             <div
-                class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button"
-                    style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
-    </div>
-    <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
-        <div class="col-sm-3 title-label" style="padding: 0;">
-            <p>Kurikulum</p>
-        </div>
-        <div class="col-sm-7 show-data" style="padding: 0;">
-            <p style="display:inline" class="showdata"><?php  ?>Kurikulum 2013 Revisi</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-        <div
-            class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
-    </div>
-    <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
-        <div class="col-sm-3 title-label" style="padding: 0;">
-            <p>Sekolah</p>
-        </div>
-        <div class="col-sm-7 show-data" style="padding: 0;">
-            <p style="display:inline" class="showdata"><?php  ?>-</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-        <div class="col-sm-6 edit-data-c form" style="padding: 0;"><input type="text" class="form-control isine"></div>
-        <div class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
-    </div>
-    <div class="mobile-flex-column d-flex flex-row col-sm-8" style="margin: 10px 0;font-size:14px">
-        <div class="col-sm-3 title-label" style="padding: 0;">
-            <p>Kelas</p>
-        </div>
-        <div class="col-sm-7 show-data" style="padding: 0;">
-            <p style="display:inline" class="showdata"><?php  ?>12</p><button class="btn btn-primary btn-link show-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue; float:right">Edit</button></div>
-        <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-        <div
-            class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
+                class="mobile-flex-row tablet-flex-column d-flex"><button class="btn btn-primary btn-link edit-data-c save" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;" value="kelas">Save</button><button class="btn btn-primary btn-link edit-data-c cancel-edit" type="button" style="padding: 0 5px;font-size: 14px;background-color: transparent;color: blue;">Cancel</button></div>
     </div>
     </div>
     </div>
     <div style="margin: 10px 0;">
         <div class="title-data">
-            <h3 style="color: #666;">Info Pendidikan<br></h3>
+            <h3 style="color: #666;">Pengaturan Akun<br></h3>
         </div>
         <div>
             <div class="mobile-flex-column d-flex flex-row col-sm-8 option-server" style="margin: 10px 0;font-size:14px">
                 <div class="col-sm-3 title-label" style="padding: 0;">
-                    <p>Jenjang</p>
+                    <p>Video settings</p>
                 </div>
                 <div class="col-sm-7 show-data" style="padding: 0;"><button class="btn btn-primary tambah-data" type="button">Flash</button><button class="btn btn-primary tambah-data" type="button">HTML5</button></div>
                 <div class="col-sm-6 edit-data-c" style="padding: 0;"><select class="form-control" style="font-size: 14px;"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
@@ -1231,8 +1204,9 @@ include "backend/sesi.php";
     $(".save").click(function(){
         var tg = $(this).val();
         var email = $(this).parent().find(".form");
-        if($(this).parent().find("option") > 0){
-            email = email.children("option:selected").val();
+        var cek = $(this).parent().parent().find(".option");
+        if(cek.length == 1){
+            email = $(this).parent().parent().find("option:selected").val();
         }else{
             email= $(this).parent().parent().find(".form .isine").val();
         }
@@ -1260,6 +1234,7 @@ include "backend/sesi.php";
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="zenius.js"></script>
+<script src="menu.js"></script>
 </body>
 
 </html>

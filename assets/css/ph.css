@@ -1,0 +1,42 @@
+.ph-min {
+  width: 375px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+  border-radius: 10px;
+  padding: 22px 20px;
+}
+
+.link-zen-black, .link-zen-black:hover {
+  color: black;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.fm {
+  position: relative;
+  box-shadow: rgba(126, 126, 126, 0.5) 0px 0px 4px 0px;
+}
+
+.icot-input {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.icot-input-induk {
+  padding-left: 40px !important;
+  padding: 20px;
+}
+
+.btn-min-zen:disabled {
+  border: none;
+  background-color: #a3a3a3;
+}
+
+.btn-min-zen, .btn-min-zen:hover, .btn-min-zen:focus {
+  background-color: #fecf3a;
+  color: black;
+  font-weight: 600;
+  border: none;
+}
+

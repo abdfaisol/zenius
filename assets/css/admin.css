@@ -1,0 +1,58 @@
+.menu-min {
+  width: 250px;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.menu-min a:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.radius-min {
+  border-radius: 15px;
+}
+
+.menu-min ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-min ul li:hover a {
+  margin-left: 10px;
+}
+
+.menu-min ul li a {
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+}
+
+.menu-min ul li {
+  margin: 15px 0;
+}
+
+.wrapper-admin {
+  margin-left: 300px;
+}
+
+#mini-chart-min {
+  padding: 15px;
+  background-color: rgb(234,100,140);
+  color: white;
+  margin-right: 25px;
+  width: 250px;
+}
+
+#mini-chart-min h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+

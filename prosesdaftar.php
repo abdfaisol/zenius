@@ -1,28 +1,45 @@
 <?php
-include "backend/koneksi.php";
-include "backend/sesi.php";
-?>
-<!DOCTYPE html>
-<html>
+include 'backend/koneksi.php';
+include 'backend/sesi.php';
+$email=$_POST["email"];
+$pass=$_POST["pass"];
+$nickname=$_POST["nickname"];
+
+$res=mysqli_query($db,"SELECT * FROM member WHERE email = '$email'");
+if (mysqli_num_rows($res) > 0) {
+	header("Location: http://localhost/zenius/daftar.php?gagal");
+}else{
+	$general = time()+60*60*24*5;
+	$general = (float) $general;
+	$sql = "INSERT INTO member(email, nickname, password, timeoff) VALUES ('$email','$nickname','$pass','$general')";
+	if(mysqli_query($db, $sql)){
+		$_SESSION['email'] = $email;
+	}else{
+		header("Location: http://localhost/zenius/daftar.php?gagal");
+	}
+}
+	?>
+	<html>
 <head>
-	<title>Home - Zenius Education</title>
+	<title>Login - Zenius Education</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="menu.css">
 	<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="https://www.zenius.net/wp-content/uploads/2020/03/zenius-1.png">
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+
 </head>
 <body>
 	<!-- Header Menu -->
 	<div class="header-menu">
 		<div class="head">
 			<div class="head1 full-w flex centerMargin">
-				<a href="http://localhost/zenius"><img src="img/logo-zeniusnet3.png" height="63"></a>
+				<img src="img/logo-zeniusnet3.png" height="63">
 				<div class="head2">
 					<ul>
 						<?php 
@@ -32,29 +49,26 @@ include "backend/sesi.php";
 						if (!isset($_SESSION['email'])) {
  		// ـJika tidak ada sesi
 							?>
-						<li><a href="daftar.php?return=<?=$linku ?>">SIGN UP</a></li>
-						<li><a href="login.php?return=<?=$linku ?>">LOG IN</a></li>
+						<li><a href="daftar.php">SIGN UP</a></li>
+						<li><a href="login.php">LOG IN</a></li>
 						<li>MEMBERSHIP <i class="fas fa-angle-down"></i>
 							<ul>
 								<li><a href="membership.php">Beli</a></li>
-								<li><a href="http://localhost/zenius">Konfirmasi Pembayaran</a></li>
-								<li><a href="aktivasi.php">Aktivasi</a></li>
+								<li><a href="">Konfirmasi Pembayaran</a></li>
+								<li><a href="">Aktivasi</a></li>
 							</ul>
 						</li>
 						<?php
 					}else{
-						$email = $_SESSION['email'];
-						$data = mysqli_fetch_array(mysqli_query($db,"SELECT * FROM member WHERE email = '$email'"));
-						$timeoff = (int)$data['timeoff'];
 						?>
-						<li id="userku">HALO, <?=$data['nickname'] ?> <i style="margin-right: 10px" class="fas fa-angle-down"></i> <i class="far fa-user"></i>
+						<li id="userku">HALO, Abdullah <i class="fas fa-angle-down"></i> <i class="far fa-user"></i>
 							<ul>
-								<li id="titleUser"> <?=$data['nickname'] ?> <br> <p id="statusUserKu"><?php if ($timeoff < time()) {echo "Regular";}else{echo "Premium";} ?></p></li>
+								<li id="titleUser">Abdullah <br> <p id="statusUserKu">Premium</p></li>
 								<li id="titleUser">AKUN SAYA</li>
 								<li><a href="profil.php">Edit Profile</a></li>
 								<li><a href="help.php">Bantuan</a></li>
 								<li id="titleUser">MEMBERSHIP</li>
-								<li><a href="membership.php">Beli</a></li>
+								<li><a href="beli.php">Beli</a></li>
 								<li><a href="konfirmasi.php">Konfirmasi Pembayaran</a></li>
 								<li><a href="aktivasi.php">Aktivasi</a></li>
 								<li id="titleUser" class="except"><a href="logout.php">Sign Out</a></li>
@@ -117,7 +131,7 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="#">Kelas 1 SD</a></li>
-																				<li><a href="materi.php">Matematika</a></li>
+																				<li><a href="sd/1mat.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -127,7 +141,7 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="#">Kelas 2 SD</a></li>
-																				<li><a href="materi.php">Matematika</a></li>
+																				<li><a href="sd/2mat.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -755,15 +769,15 @@ include "backend/sesi.php";
 								</li>
 								<!-- Blog -->
 								<li class="nav-item">
-									<a class="nav-link" href="blog.php">Blog</a>
+									<a class="nav-link" href="#">Blog</a>
 								</li>
 								<!-- Belajar Mandiri -->
 								<li class="nav-item">
 									<a class="nav-link" href="#">Belajar Mandiri</a>
 								</li>
 							</ul>
-							<form class="form-inline relative" method="POST" action="cari.php">
-								<input class="form-control" type="search" placeholder="Masukkan kode konten" name="ids" aria-label="Search">
+							<form class="form-inline relative">
+								<input class="form-control" type="search" placeholder="Masukkan kode konten" aria-label="Search">
 								<button class="cari" type="submit"><i class="fas fa-search"></i></button>
 							</form>
 						</div>
@@ -774,432 +788,15 @@ include "backend/sesi.php";
 	</div>
 	<!-- Akhir dari menu -->
 	<div class="post full-w">
-		<div class="header full-w flex relative">
-			<div class="desc-header flex relative">
-				<div class="content">
-					<h1>
-						<span>Jadikan Rumahmu Tempat Belajarmu!</span> <br>
-						Belajar Mandiri dengan Zenius GRATIS TOTAL #IndonesiaTetapBelajar
-					</h1>
-					<button id="button-nm">
-						Belajar Sekarang
-					</button>
-				</div>
-				
-				<div class="app">
-					<p>Download Zenius App Sekarang</p>
-					<div id="ico_app">
-						<img src="img/playstore_icon.png">
-						<img src="img/app_store_icon.png">
-					</div>
+		<div class="ContainerPost full-w flex relative">
+			<div id="direct-sukses" class="Sign container centerMargin flex directionFlexRow">
+				<div class="container">
+					<div class="d-flex d-sm-flex flex-column justify-content-sm-center align-items-sm-center"><i class="far fa-check-circle" style="font-size: 7rem;margin: 2rem 0;color: #fecf3a;"></i>
+					<h3 style="font-size: 26px;font-weight: 400;margin: 1rem 0;">Sign-in berhasil</h3>
+					<p style="font-size: 14px;margin: 1rem 0;">Silahkan klik&nbsp;<a class="returnlink" href="http://localhost/zenius/" style="font-weight: 500">link berikut ini</a></p>
 				</div>
 			</div>
 		</div>
-		<div class="promotion full-w flex">
-			<div class="wrap-kata-mutiara flex flexCenterAll">
-				<div class="kata-mutiara relative">
-					<img src="img/quote-slider-video.png">
-					<h1>Kami sedang menunggumu, di masa depan</h1>
-					<p>Johann Wibowo, Alumnus Zenius 2011</p>
-					<button class ="button" style="color: white; background-color: black">
-						Testimoni Lainnya
-					</button>
-				</div>
-			</div>
-			<div class="video">
-				<div class="ctn-video">
-					<div style="position: relative;width: 100%; height: 100%;" class="wrap-video">
-						<a href="#"  >
-							<div id="click-video">
-								
-							</div>
-						</a>
-					</div>
-				</div>
-				<img src="img/macbook.png">
-			</div>
-		</div>
-		<div class="testimoni full-w flex flexAlignCenter">
-			<h1>Zenius di Mata Mereka</h1>
-			<div class="slideOrign centerMargin">
-				<!--Awal slide-->
-				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators indicatorOrign">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="testimoni-homepage">
-								<div class="profil">
-									<img src="img/anita.jpg">
-								</div>
-								<div class="isi-testimoni">
-									<H4>Zenius adalah senjata andalan terbaik untuk belajar secara terstruktur dan mendalam.
-										Anita Yolanda Hermawaty, Product Executive - Traveloka
-									</H4>
-									<div class="profilAlumni">
-										<p>Anita Yolanda Hermawaty, Product Executive - Traveloka</p>
-										<span class="alumni">Ilmu Keluarga dan Konsumen IPB 2013</span>
-									</div>	
-								</div>
-							</div>
-
-						</div>
-						<div class="carousel-item">
-							<div class="testimoni-homepage">
-								<div class="profil">
-									<img src="img/pusvita.jpg">
-								</div>
-								<div class="isi-testimoni">
-									<H4>Zenius jadi media belajar terbaik waktu gue nyiapin SIMAK UI 2010 lalu. Gue yang asalnya anak IPA bisa ngejar materi IPS sampai akhirnya diterima di jurusan Ilmu Komunikasi UI.
-									</H4>
-									<div class="profilAlumni">
-										<p>Putri Pusvita Surya, University of Southampton 2019-2020</p>
-										<span class="alumni">Chevening Scholarship Awardee</span>
-									</div>	
-								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="testimoni-homepage">
-								<div class="profil">
-									<img src="img/mellisa.jpg">
-								</div>
-								<div class="isi-testimoni">
-									<H4>Dengan materi belajar berkualitas dari Zenius, aku yang berasal dari daerah terpencil bisa bersaing hingga akhirnya diterima di jurusan Filsafat UI. Zenius bahkan jadi tempat belajarku lagi ketika seleksi pilot Garuda.
-									</H4>
-									<div class="profilAlumni">
-										<p>Mellisa Anggiarti, Pilot at Garuda Indonesia</p>
-										<span class="alumni">Filsafat UI</span>
-									</div>	
-								</div>
-							</div>
-						</div>
-					</div>
-					<a class="control carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-						<i class="fas fa-chevron-left"></i>
-					</a>
-					<a  class="control carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-						<i class="fas fa-chevron-right"></i>
-					</a>
-				</div>
-				<!--Akhir slide-->
-			</div>
-			<button style="margin: 25px auto;color: white; background-color: black;padding: 15px 45px;" class ="button">Mulai Belajar</button>
-		</div>
-		<div class="matkul full-w flex flexAlignCenter">
-			<h1 style="text-align: center; color: black">TEMUKAN MATERI PELAJARAN APAPUN</h1>
-			<div class="menu-matkul" id="MenuMatkulZenius">
-				<ul class="matkulMenu titleMatkul" id="matakul">
-					<li class="active2" id="mat"><a>MATEMATIKA</a></li>
-					<li id="ipa"><a>IPA</a></li>
-					<li id="ips"><a>IPS</a></li>
-					<li id="bhs"><a>BAHASA</a></li>
-				</ul>
-				<div class="kurikulum mn-kul">
-					<ul class="matkulMenu" id="scdMatkul">
-						<li id="ktsp" class="active2"><a>KTSP</a></li>
-						<li id="k13"><a>KURIKULUM 2013</a></li>
-						<li id="k13r"><a>KURIKULUM 2013 REVISI</a></li>
-					</ul>
-				</div>
-				<div class="link-matkul">
-					<div class="setMatkul title-matkul">
-						<ul>
-							<li>
-								<p>SD</p>
-								<!-- Matematika SD -->
-								<ul class="ktsp-mat">
-									<li>Matematika Kelas 1</li>
-									<li>Matematika Kelas 2</li>
-									<li>Matematika Kelas 3</li>
-									<li>Matematika Kelas 4</li>
-									<li>Matematika Kelas 5</li>
-									<li>Matematika Kelas 6</li>
-								</ul>
-								<ul class="ktsp-ipa">
-									<li>IPA Kelas 4</li>
-									<li>IPA Kelas 5</li>
-									<li>IPA Kelas 6</li>
-								</ul>
-								<ul class="ktsp-bhs">
-									<li>Bahasa Inggris Kelas 4</li>
-									<li>Bahasa Inggris Kelas 5</li>
-									<li>Bahasa Indonesia Kelas 6</li>
-									<li>Bahasa Inggris Kelas 6</li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<p>SMP</p>
-								<!-- KTSP SMP -->
-								<ul class="ktsp-mat">
-									<li>Matematika Kelas 7</li>
-									<li>Matematika Kelas 8</li>
-									<li>Matematika Kelas 9</li>
-								</ul>
-								<ul class="ktsp-ipa">
-									<li>Fisika Kelas 7</li>
-									<li>Biologi Kelas 7</li>
-									<li>Fisika Kelas 8</li>
-									<li>Biologi Kelas 8</li>
-									<li>Fisika Kelas 9</li>
-									<li>Biologi Kelas 9</li>
-								</ul>
-								<ul class="ktsp-bhs">
-									<li>Bahasa Indonesia Kelas 7</li>
-									<li>Bahasa Inggris Kelas 7</li>
-									<li>Bahasa Indonesia Kelas 8</li>
-									<li>Bahasa Inggris Kelas 8</li>
-									<li>Bahasa Indonesia Kelas 9</li>
-									<li>Bahasa Inggris Kelas 9</li>
-								</ul>
-								<!-- K13 SMP -->
-								<ul class="k13-mat">
-									<li>Matematika Kelas 7</li>
-									<li>Matematika Kelas 8</li>
-									<li>Matematika Kelas 9</li>
-								</ul>
-								<ul class="k13-ipa">
-									<li>IPA Kelas 7</li>
-									<li>IPA Kelas 8</li>
-									<li>IPA Kelas 9</li>
-								</ul>
-								<ul class="k13-bhs">
-									<li>Bahasa Indonesia Kelas 7</li>
-									<li>Bahasa Inggris Kelas 7</li>
-									<li>Bahasa Indonesia Kelas 8</li>
-									<li>Bahasa Inggris Kelas 8</li>
-									<li>Bahasa Indonesia Kelas 9</li>
-									<li>Bahasa Inggris Kelas 9</li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<p>SMA</p>
-								<!-- KTSP SMA -->
-								<ul class="ktsp-mat">
-									<li>Matematika Kelas 10</li>
-									<li>Matematika Kelas 11</li>
-									<li>Matematika Kelas 12</li>
-								</ul>
-								<ul class="ktsp-ipa">
-									<li>Fisika Kelas 10</li>
-									<li>Kimia Kelas 10</li>
-									<li>Biologi Kelas 10</li>
-									<li>Fisika Kelas 11</li>
-									<li>Kimia Kelas 11</li>
-									<li>Biologi Kelas 11</li>
-									<li>Fisika Kelas 12</li>
-									<li>Kimia Kelas 12</li>
-									<li>Biologi Kelas 12</li>
-								</ul>
-								<ul class="ktsp-ips">
-									<li>Sejarah Kelas 10</li>
-									<li>Ekonomi Kelas 10</li>
-									<li>Sosiologi Kelas 10</li>
-									<li>Geografi Kelas 10</li>
-									<li>Sejarah Kelas 11</li>
-									<li>Ekonomi Kelas 11</li>
-									<li>Sosiologi Kelas 11</li>
-									<li>Geografi Kelas 11</li>
-									<li>Sejarah Kelas 12</li>
-									<li>Ekonomi Kelas 12</li>
-									<li>Sosiologi Kelas 12</li>
-									<li>Geografi Kelas 12</li>
-								</ul>
-								<ul class="ktsp-bhs">
-									<li>Bahasa Indonesia Kelas 10</li>
-									<li>Bahasa Inggris Kelas 10</li>
-									<li>Bahasa Indonesia Kelas 11</li>
-									<li>Bahasa Inggris Kelas 11</li>
-									<li>Bahasa Indonesia Kelas 12</li>
-									<li>Bahasa Inggris Kelas 12</li>
-								</ul>
-								<!-- K13 SMA -->
-								<ul class="k13-mat">
-									<li>Matematika Wajib Kelas 10</li>
-									<li>Matematika Peminatan Kelas 10</li>
-									<li>Matematika Wajib Kelas 11</li>
-									<li>Matematika Peminatan Kelas 11</li>
-									<li>Matematika Wajib Kelas 12</li>
-									<li>Matematika Peminatan Kelas 12</li>
-								</ul>
-								<ul class="k13-ipa">
-									<li>Fisika Kelas 10</li>
-									<li>Kimia Kelas 10</li>
-									<li>Biologi Kelas 10</li>
-									<li>Fisika Kelas 11</li>
-									<li>Kimia Kelas 11</li>
-									<li>Biologi Kelas 11</li>
-									<li>Fisika Kelas 12</li>
-									<li>Kimia Kelas 12</li>
-									<li>Biologi Kelas 12</li>
-								</ul>
-								<ul class="k13-ips">
-									<li>Sejarah Kelas 10</li>
-									<li>Sejarah Peminatan Kelas 10</li>
-									<li>Ekonomi Kelas 10</li>
-									<li>Sosiologi Kelas 10</li>
-									<li>Geografi Kelas 10</li>
-									<li>Sejarah Kelas 11</li>
-									<li>Sejarah Peminatan Kelas 11</li>
-									<li>Ekonomi Kelas 11</li>
-									<li>Sosiologi Kelas 11</li>
-									<li>Geografi Kelas 11</li>
-									<li>Sejarah Kelas 12</li>
-									<li>Sejarah Peminatan Kelas 12</li>
-									<li>Ekonomi Kelas 12</li>
-									<li>Sosiologi Kelas 12</li>
-									<li>Geografi Kelas 12</li>
-								</ul>
-								<ul class="k13-bhs">
-									<li>Bahasa Indonesia Kelas 10</li>
-									<li>Bahasa Inggris Kelas 10</li>
-									<li>Bahasa Indonesia Kelas 11</li>
-									<li>Bahasa Inggris Kelas 11</li>
-									<li>Bahasa Indonesia Kelas 12</li>
-									<li>Bahasa Inggris Kelas 12</li>
-								</ul>
-								<!-- K13 Revisi SMA -->
-								<ul class="k13r-mat">
-									<li>Matematika Wajib Kelas 10</li>
-									<li>Matematika Peminatan Kelas 10</li>
-									<li>Matematika Wajib Kelas 11</li>
-									<li>Matematika Peminatan Kelas 11</li>
-									<li>Matematika Wajib Kelas 12</li>
-									<li>Matematika Peminatan Kelas 12</li>
-								</ul>
-								<ul class="k13r-ipa">
-									<li>Fisika Kelas 10</li>
-									<li>Kimia Kelas 10</li>
-									<li>Biologi Kelas 10</li>
-									<li>Fisika Kelas 11</li>
-									<li>Kimia Kelas 11</li>
-									<li>Biologi Kelas 11</li>
-									<li>Fisika Kelas 12</li>
-									<li>Kimia Kelas 12</li>
-									<li>Biologi Kelas 12</li>
-								</ul>
-								<ul class="k13r-ips">
-									<li>Sejarah Kelas 10</li>
-									<li>Sejarah Peminatan Kelas 10</li>
-									<li>Ekonomi Kelas 10</li>
-									<li>Sosiologi Kelas 10</li>
-									<li>Geografi Kelas 10</li>
-									<li>Sejarah Kelas 11</li>
-									<li>Sejarah Peminatan Kelas 11</li>
-									<li>Ekonomi Kelas 11</li>
-									<li>Sosiologi Kelas 11</li>
-									<li>Geografi Kelas 11</li>
-									<li>Sejarah Kelas 12</li>
-									<li>Sejarah Peminatan Kelas 12</li>
-									<li>Ekonomi Kelas 12</li>
-									<li>Sosiologi Kelas 12</li>
-									<li>Geografi Kelas 12</li>
-								</ul>
-								<ul class="k13r-bhs">
-									<li>Bahasa Indonesia Kelas 10</li>
-									<li>Bahasa Inggris Kelas 10</li>
-									<li>Bahasa Indonesia Kelas 11</li>
-									<li>Bahasa Inggris Kelas 11</li>
-									<li>Bahasa Indonesia Kelas 12</li>
-									<li>Bahasa Inggris Kelas 12</li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<p>Ujian Nasional</p>
-								<!-- UN Bro -->
-								<ul class="ktsp-mat k13-mat k13r-mat">
-									<li>UN Matematika SD</li>
-									<li>UN Matematika SMP</li>
-									<li>UN Matematika SMA IPA</li>
-									<li>UN Matematika SMA IPS</li>
-									<li>UN Matematika SMK AKP</li>
-									<li>UN Matematika SMA PSP</li>
-									<li>UN Matematika SMA TKP</li>
-								</ul>
-								<ul class="ktsp-ipa k13-ipa k13r-ipa">
-									<li>UN IPA SD</li>
-									<li>UN IPA SMP</li>
-									<li>UN Fisika SMA</li>
-									<li>UN Kimia SMA</li>
-									<li>UN Biologi SMA</li>
-								</ul>
-								<ul class="ktsp-ips k13-ips k13r-ips">
-									<li>UN Ekonomi SMA</li>
-									<li>UN Sosiologi SMA</li>
-									<li>UN Geografi SMA</li>
-								</ul>
-								<ul class="ktsp-bhs k13-bhs k13r-bhs">
-									<li>UN Bahasa Indonesia SD</li>
-									<li>UN Bahasa Indonesia SMP</li>
-									<li>UN Bahasa Inggris SMP</li>
-									<li>UN Bahasa Indonesia SMA</li>
-									<li>UN Bahasa Inggris SMA</li>
-									<li>UN Bahasa Indonesia AKP</li>
-									<li>UN Bahasa Inggris AKP</li>
-									<li>UN Bahasa Indonesia PSP</li>
-									<li>UN Bahasa Inggris PSP</li>
-									<li>UN Bahasa Indonesia TKP</li>
-									<li>UN Bahasa Inggris TKP</li>
-								</ul>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<p>UTBK</p>
-								<ul class="ktsp-mat k13-mat k13r-mat">
-									<li>Matematika Soshum UTBK</li>
-									<li>Matematika IPA UTBK</li>
-									<li>Soal Matematik IPA UTBK</li>
-								</ul>
-								<ul class="ktsp-ipa k13-ipa k13r-ipa">
-									<li>Fisika (Ringkas) UTBK</li>
-									<li>Fisika (Lengkap) UTBK</li>
-									<li>Soal Fisika UTBK</li>
-									<li>Kimia UTBK</li>
-									<li>Soal Kimia UTBK</li>
-									<li>Biologi UTBK</li>
-									<li>Soal Biologi UTBK</li>
-								</ul>
-								<ul class="ktsp-ips k13-ips k13r-ips">
-									<li>Materi Ekonomi UTBK</li>
-									<li>Soal Ekonomi UTBK</li>
-									<li>Materi Geografi UTBK</li>
-									<li>Soal Geografi UTBK</li>
-									<li>Materi Sejarah UTBK</li>
-									<li>Soal Sejarah UTBK</li>
-									<li>Materi Sosiologi UTBK</li>
-									<li>Soal Sosiologi UTBK</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="testimoni full-w">
-			<div class="testi-2">
-				<h1>Ada juga pembahasan soal-soal UN, SBMPTN, SIMAK UI, UM STAN, UTUL UGM, dll sejak tahun 2002</h1>
-				<div class="testimoni-homepage" id="testi-2">
-					<div class="profil" id="profil">
-						<img src="img/sprites_testi_bottom.jpg">
-					</div>
-					<div class="isi-testimoni">
-						<p class="psn">&emsp;&emsp;&emsp;&emsp;@zeniuseducation Oke zen, gue ubah omongan gue kemaren, ELO EMANG TOP! DOUBLE KILL ZEN! THANKS ZENIUS! (Diterima di Jurusan Fisika melalui SIMAK UI & Teknik Mesin & Dirgantara ITB melalui jalur SBMPTN)
-						</p>
-						<p class="nama"> Zulfikar Alfayed via Twitter : @Feili88</p>	
-					</div>
-				</div>
-			</div>
-			
 		</div>
 	</div>
 	<div class="footer">
@@ -1308,7 +905,7 @@ include "backend/sesi.php";
 							</li>
 						</ul>
 						<div class="logo-footer">
-							<img src="img/logo-f.png">
+							<img src="https://abdfaisol.github.io/zenius/img/logo-f.png">
 						</div>
 					</div>
 				</div>
@@ -1329,12 +926,15 @@ include "backend/sesi.php";
 		<!-- ini bagian footer alias copy right -->
 	</div>
 	<!-- File JS -->
-	<script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="file:///C:/Users/Asus/Documents/Website/Tools/bootstrap-4.4.1/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="zenius.js"></script>
 <script src="menu.js"></script>
+<script type="text/javascript">
+	// setTimeout(function(){window.location = 'http://localhost/zenius/'},3000);
+</script>
 </body>
 </html>
+	
