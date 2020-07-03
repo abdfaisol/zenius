@@ -757,9 +757,10 @@ include "backend/sesi.php";
 								<li class="nav-item">
 									<a class="nav-link" href="blog.php">Blog</a>
 								</li>
-								<!-- Belajar Mandiri -->
+								<!-- 
+-->
 								<li class="nav-item">
-									<a class="nav-link" href="#">Belajar Mandiri</a>
+									<a class="nav-link" href="mandiri.php">Belajar Mandiri</a>
 								</li>
 							</ul>
 							<form class="form-inline relative" method="POST" action="cari.php">
