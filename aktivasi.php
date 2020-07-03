@@ -795,7 +795,6 @@ include "backend/sesi.php";
 				}else{
 
 				} ?>
-				
 			<form id="vactivate" class="form-horizontal" method="post" action="backend/aktivasivc.php">
 					<div class="form-group"><label class="col-lg-2 col-xs-5 control-label" for="inputEmail3">Kode aktivasi membership</label>
 						<div class="col-lg-4 col-xs-7">
@@ -814,7 +813,19 @@ include "backend/sesi.php";
 						</div>
 						</div>
 					<div class="form-group"><label class="col-lg-2 col-xs-5 control-label" for="inputEmail3"></label>
-						<div class="col-lg-4 col-xs-7"><input id="activateBtn" class="btn btn-default" name="activate" type="button" value="Submit" /></div>
+						<div class="col-lg-4 col-xs-7">
+							<?php 
+							if (!isset($_SESSION['email'])) {
+								?>
+								<input id="activateBtn" class="btn btn-default btn-primary"  name="activate" type="submit" value="Submit" disabled />
+								<?php
+							}else{
+								?>
+								<input id="activateBtn" class="btn btn-default btn-primary"  name="activate" type="submit" value="Submit" />
+								<?php
+							} 
+							 ?>
+						</div>
 					</div>
 			</form>
 			<div class="row">

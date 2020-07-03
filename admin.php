@@ -51,24 +51,46 @@
                 </form>
             </div>
             <div id="sc-data" class="d-flex flex-row" style="margin: 25px 0;">
-                <form style="width: 80%; font-size: 14px">
+                <form style="width: 80%; font-size: 14px" method="post" action="backend/keyword.php">
                     <p style="margin: 10px 0;">Search Data</p>
-                    <div class="d-flex flex-row" style="margin: 15px 0;"><input class="form-control" type="text" placeholder="key pencarian" style="margin-right: 10px;"><input class="form-control" type="text" placeholder="target"></div><button class="btn btn-primary form-control" type="button">Tambah Data</button></form>
+                    <div class="d-flex flex-row" style="margin: 15px 0;">
+                        <input class="form-control" type="text" placeholder="key pencarian" style="margin-right: 10px;" name="key">
+                        <input class="form-control" type="text" placeholder="target" name="target">
+                    </div><button class="btn btn-primary form-control" type="submit">Tambah Data</button></form>
             </div>
             <div id="gt-vc" class="d-flex flex-row" style="margin: 25px 0;">
-                <form style="width: 80%; font-size: 14px">
+                <form style="width: 80%; font-size: 14px" method="post" action="backend/beli.php">
                     <p style="margin: 10px 0;">Get E-Voucher</p>
-                    <div class="d-flex flex-row" style="margin: 15px 0;"><input class="form-control" type="text" placeholder="email"><input class="form-control form-control" type="button"></div><button class="btn btn-primary form-control" type="button">Get Code</button></form>
+                    <input type="text" id="id" value="0" name="code"  style="display: none">
+                    <div class="d-flex flex-row" style="margin: 15px 0;">
+                        <input class="form-control" type="text" placeholder="email" name="email" required>
+                        <input class="form-control" type="text" placeholder="Beli berapa hari?" name="durasi" required>
+                    </div>
+                    <button class="btn btn-primary form-control" type="submit" onclick="pakaicode()">Get Code</button>
+                </form>
             </div>
             <div id="cf-vc" class="d-flex flex-row" style="margin: 25px 0;">
-                <form style="width: 80%; font-size: 14px">
+                <form style="width: 80%; font-size: 14px" method="post" action="backend/konfirmasi.php">
                     <p style="margin: 10px 0;">Konfirmasi Voucher</p>
-                    <div class="d-flex flex-row" style="margin: 15px 0;"><input class="form-control" type="text" placeholder="Code Voucher"></div><button class="btn btn-primary form-control" type="button">Konfirmasi</button></form>
+                    <div class="d-flex flex-row" style="margin: 15px 0;">
+                        <input class="form-control" type="text" placeholder="Code Voucher" name="code"></div><button class="btn btn-primary form-control" type="submit">Konfirmasi</button></form>
             </div>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function pakaicode(){
+            var d = new Date();
+            var codeN = '';
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            var characterslenght = characters.length;
+            for (var i = 0; i < 10; i++) {
+                codeN += characters.charAt(Math.floor(Math.random()*characterslenght));
+            }
+            document.getElementById('id').value = d.getDate()+codeN+ d.getFullYear();
+        }
+    </script>
 </body>
 
 </html>
