@@ -54,7 +54,7 @@ include "backend/sesi.php";
     <div class="header-menu">
         <div class="head">
             <div class="head1 full-w flex centerMargin">
-                <img src="img/logo-zeniusnet3.png" height="63">
+                <a href="http://localhost/zenius"><img src="img/logo-zeniusnet3.png" height="63"></a>
                 <div class="head2">
                     <ul>
                         <?php 
@@ -69,21 +69,24 @@ include "backend/sesi.php";
                         <li>MEMBERSHIP <i class="fas fa-angle-down"></i>
                             <ul>
                                 <li><a href="membership.php">Beli</a></li>
-                                <li><a href="">Konfirmasi Pembayaran</a></li>
-                                <li><a href="">Aktivasi</a></li>
+                                <li><a href="http://localhost/zenius">Konfirmasi Pembayaran</a></li>
+                                <li><a href="aktivasi.php">Aktivasi</a></li>
                             </ul>
                         </li>
                         <?php
                     }else{
+                        $email = $_SESSION['email'];
+                        $data = mysqli_fetch_array(mysqli_query($db,"SELECT * FROM member WHERE email = '$email'"));
+                        $timeoff = (int)$data['timeoff'];
                         ?>
-                        <li id="userku">HALO, Abdullah <i class="fas fa-angle-down"></i> <i class="far fa-user"></i>
+                        <li id="userku">HALO, <?=$data['nickname'] ?> <i style="margin-right: 10px" class="fas fa-angle-down"></i> <i class="far fa-user"></i>
                             <ul>
-                                <li id="titleUser">Abdullah <br> <p id="statusUserKu">Premium</p></li>
+                                <li id="titleUser"> <?=$data['nickname'] ?> <br> <p id="statusUserKu"><?php if ($timeoff < time()) {echo "Regular";}else{echo "Premium";} ?></p></li>
                                 <li id="titleUser">AKUN SAYA</li>
                                 <li><a href="profil.php">Edit Profile</a></li>
                                 <li><a href="help.php">Bantuan</a></li>
                                 <li id="titleUser">MEMBERSHIP</li>
-                                <li><a href="beli.php">Beli</a></li>
+                                <li><a href="membership.php">Beli</a></li>
                                 <li><a href="konfirmasi.php">Konfirmasi Pembayaran</a></li>
                                 <li><a href="aktivasi.php">Aktivasi</a></li>
                                 <li id="titleUser" class="except"><a href="logout.php">Sign Out</a></li>
@@ -156,7 +159,7 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="#">Kelas 2 SD</a></li>
-                                                                                <li><a href="sd/2mat.php">Matematika</a></li>
+                                                                                <li><a href="materi.php">Matematika</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -166,7 +169,7 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="">Kelas 3 SD</a></li>
-                                                                                <li><a href="">Matematika</a></li>
+                                                                                <li><a href="materi.php">Matematika</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -176,9 +179,9 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="">Kelas 4 SD</a></li>
-                                                                                <li><a href="">Matematika</a></li>
-                                                                                <li><a href="">Sains</a></li>
-                                                                                <li><a href="">Bahasa Inggris</a></li>
+                                                                                <li><a href="materi.php">Matematika</a></li>
+                                                                                <li><a href="materi.php">Sains</a></li>
+                                                                                <li><a href="materi.php">Bahasa Inggris</a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -262,11 +265,11 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="">KTSP</a></li>
-                                                                                <li><a href="/cg/29/matematika-smp-kelas-7-ktsp" >Matematika</a></li>
-                                                                                <li><a href="/cg/27/fisika-smp-kelas-7">Fisika</a></li>
-                                                                                <li><a href="/cg/28/biologi-smp-kelas-7-ktsp">Biologi</a></li>
-                                                                                <li><a href="/cg/26/bahasa-inggris-smp-kelas-7-ktsp">Bahasa Inggris</a></li>
-                                                                                <li><a href="/cg/528/bahasa-indonesia-smp-kelas-7-ktsp">Bahasa Indonesia</a></li>
+                                                                                <li><a href="materi.php" >Matematika</a></li>
+                                                                                <li><a href="materi.php">Fisika</a></li>
+                                                                                <li><a href="materi.php">Biologi</a></li>
+                                                                                <li><a href="materi.php">Bahasa Inggris</a></li>
+                                                                                <li><a href="materi.php">Bahasa Indonesia</a></li>
                                                                             </ul>
                                                                         </div>
                                                                         <div class="col-sm-3">
@@ -317,10 +320,10 @@ include "backend/sesi.php";
                                                                         <div class="col-sm-3">
                                                                             <ul>
                                                                                 <li><a href="">Kurikulum 2013</a></li>
-                                                                                <li><a href="/cg/646/matematika-smp-kelas-8-kurikulum-2013">Matematika</a></li>
-                                                                                <li><a href="/cg/1778/ipa-smp-kelas-8-kurikulum-2013">IPA</a></li>
-                                                                                <li><a href="/cg/649/bahasa-inggris-smp-kelas-8-kurikulum-2013">Bahasa Inggris</a></li>
-                                                                                <li><a href="/cg/650/bahasa-indonesia-smp-kelas-8-kurikulum-2013">Bahasa Indonesia</a></li>
+                                                                                <li><a href="materi.php">Matematika</a></li>
+                                                                                <li><a href="materi.php">IPA</a></li>
+                                                                                <li><a href="materi.php">Bahasa Inggris</a></li>
+                                                                                <li><a href="materi.php">Bahasa Indonesia</a></li>
                                                                             </ul>
                                                                         </div>                  
                                                                     </div>
@@ -784,15 +787,15 @@ include "backend/sesi.php";
                                 </li>
                                 <!-- Blog -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="blog.php">Blog</a>
                                 </li>
                                 <!-- Belajar Mandiri -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Belajar Mandiri</a>
+                                    <a class="nav-link" href="mandiri.php">Belajar Mandiri</a>
                                 </li>
                             </ul>
-                            <form class="form-inline relative">
-                                <input class="form-control" type="search" placeholder="Masukkan kode konten" aria-label="Search">
+                            <form class="form-inline relative" method="POST" action="cari.php">
+                                <input class="form-control" type="search" placeholder="Masukkan kode konten" name="ids" aria-label="Search">
                                 <button class="cari" type="submit"><i class="fas fa-search"></i></button>
                             </form>
                         </div>

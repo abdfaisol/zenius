@@ -75,7 +75,7 @@ include "backend/sesi.php";
 							<!-- SD -->
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="sd.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										SD <i class="abs-center fas fa-chevron-down"></i>
 									</a>
 									<ul class="item-sub">
@@ -137,7 +137,7 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="">Kelas 3 SD</a></li>
-																				<li><a href="">Matematika</a></li>
+																				<li><a href="materi.php">Matematika</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -147,9 +147,9 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="">Kelas 4 SD</a></li>
-																				<li><a href="">Matematika</a></li>
-																				<li><a href="">Sains</a></li>
-																				<li><a href="">Bahasa Inggris</a></li>
+																				<li><a href="materi.php">Matematika</a></li>
+																				<li><a href="materi.php">Sains</a></li>
+																				<li><a href="materi.php">Bahasa Inggris</a></li>
 																			</ul>
 																		</div>
 																	</div>
@@ -233,11 +233,11 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="">KTSP</a></li>
-																				<li><a href="/cg/29/matematika-smp-kelas-7-ktsp" >Matematika</a></li>
-																				<li><a href="/cg/27/fisika-smp-kelas-7">Fisika</a></li>
-																				<li><a href="/cg/28/biologi-smp-kelas-7-ktsp">Biologi</a></li>
-																				<li><a href="/cg/26/bahasa-inggris-smp-kelas-7-ktsp">Bahasa Inggris</a></li>
-																				<li><a href="/cg/528/bahasa-indonesia-smp-kelas-7-ktsp">Bahasa Indonesia</a></li>
+																				<li><a href="materi.php" >Matematika</a></li>
+																				<li><a href="materi.php">Fisika</a></li>
+																				<li><a href="materi.php">Biologi</a></li>
+																				<li><a href="materi.php">Bahasa Inggris</a></li>
+																				<li><a href="materi.php">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>
 																		<div class="col-sm-3">
@@ -288,10 +288,10 @@ include "backend/sesi.php";
 																		<div class="col-sm-3">
 																			<ul>
 																				<li><a href="">Kurikulum 2013</a></li>
-																				<li><a href="/cg/646/matematika-smp-kelas-8-kurikulum-2013">Matematika</a></li>
-																				<li><a href="/cg/1778/ipa-smp-kelas-8-kurikulum-2013">IPA</a></li>
-																				<li><a href="/cg/649/bahasa-inggris-smp-kelas-8-kurikulum-2013">Bahasa Inggris</a></li>
-																				<li><a href="/cg/650/bahasa-indonesia-smp-kelas-8-kurikulum-2013">Bahasa Indonesia</a></li>
+																				<li><a href="materi.php">Matematika</a></li>
+																				<li><a href="materi.php">IPA</a></li>
+																				<li><a href="materi.php">Bahasa Inggris</a></li>
+																				<li><a href="materi.php">Bahasa Indonesia</a></li>
 																			</ul>
 																		</div>					
 																	</div>
@@ -757,8 +757,7 @@ include "backend/sesi.php";
 								<li class="nav-item">
 									<a class="nav-link" href="blog.php">Blog</a>
 								</li>
-								<!-- 
--->
+								<!-- Belajar Mandiri -->
 								<li class="nav-item">
 									<a class="nav-link" href="mandiri.php">Belajar Mandiri</a>
 								</li>

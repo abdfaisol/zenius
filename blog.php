@@ -21,7 +21,7 @@ include "backend/koneksi.php";
     $halaman = 2;
     $page = isset($_GET['halaman'])? (int)$_GET["halaman"]:1;
     $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
-    $query = mysqli_query($db,"SELECT * FROM article LIMIT $mulai, $halaman");
+    $query = mysqli_query($db,"SELECT * FROM article ORDER BY publidate DESC LIMIT $mulai, $halaman");
     $sql = mysqli_query($db,"SELECT * FROM article");
     $total = mysqli_num_rows($sql);
     $pages = ceil($total/$halaman); 
